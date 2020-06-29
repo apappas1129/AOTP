@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Tinybox no-thumbs v-model="tinyBoxNewsIndex" :images="tinyBoxNews" />
     <section class="row slider-section">
       <HomeSlider />
       <div class="social">
@@ -43,10 +44,10 @@
     </section>
     <section style="height: 50vh">
       <div class="latest-news">
-        <div class="news-thumb"></div>
+        <div class="news-thumb" @click="tinyBoxNewsIndex = 0"></div>
         <div class="news-content">
           <p class="sub-text">LATEST NEWS</p>
-          <h4>New album, "Raging Clouds", is out.</h4>
+          <h4>{{ tinyBoxNews[0].caption }}</h4>
           <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
         </div>
       </div>
@@ -73,6 +74,7 @@ import FancyBtn from '@/components/FancyBtn.vue'
 import NeomorphicPlayer from '@/components/NeomorphicPlayer.vue'
 import MiniGallery from '@/components/MiniGallery.vue'
 import Parallax from 'vue-parallaxy'
+import Tinybox from "vue-tinybox";
 
 export default {
   name: 'Home',
@@ -81,10 +83,13 @@ export default {
     FancyBtn,
     NeomorphicPlayer,
     Parallax,
-    MiniGallery
+    MiniGallery,
+    Tinybox
   },
   data () {
     return {
+      tinyBoxNews: [{ src: require('../assets/latest_news.jpg'), caption: 'AOTP bags record deal with Major Label, Warner Music Philippines.' }],
+      tinyBoxNewsIndex: null,
       socialLinks: [
         {
           icon: 'lab la-spotify',
@@ -226,8 +231,10 @@ h3.about {
 .news-thumb {
   height: 250px;
   width: 250px;
-  background-image: url('../assets/ezgif-2-8d77c018a0f8.jpg');
+  background-image: url('../assets/latest_news.jpg');
   background-size: cover;
+  background-position-x: -81px;
+  cursor: pointer;
 }
 
 .news-content {
@@ -250,5 +257,9 @@ h3.about {
     font-weight: bold;
     margin-bottom: 1.5rem;
   }
+}
+
+.swiper-container.swiper.swiper-container-initialized {
+  background: black;
 }
 </style>
