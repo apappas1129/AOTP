@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap');
+body {
+  background: #eef3f7 !important;
+}
+
+.row {
+  margin: 0 !important;
+}
+
+.wyt {
+  background: #eef3f7;
+}
+
+h1,
+h2 {
+  font-family: 'Questrial', sans-serif;
+  font-style: normal;
+  color: white;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  color: white;
+}
+
+h1 {
+  font-size: 6.5rem;
+  font-weight: 600;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
