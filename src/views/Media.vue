@@ -29,12 +29,12 @@
 </template>
 
 <script>
-import PlayBtn from '@/components/PlayBtn'
+// import PlayBtn from '@/components/PlayBtn'
 
 export default {
   name: 'Media',
   components: {
-    PlayBtn
+    // PlayBtn
   },
   data () {
     return {
