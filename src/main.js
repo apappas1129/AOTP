@@ -11,3 +11,6 @@ new Vue({
   router,
   render: (h) => h(App),
 }).$mount('#app');
+
+document.title = '𝓐 𝓞 𝓣 𝓟';
+Vue.prototype.$scrollToTop = () => window.scrollTo(0, 0);

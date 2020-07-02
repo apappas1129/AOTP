@@ -1,38 +1,39 @@
 <template>
   <div id="app" class="container-fluid">
-    <div id="nav" class="row" v-bind:class="{ shrink : isPassedSection1 }">
+    <div id="nav" class="row" v-bind:class="{ shrink : shrinkNav }">
       <div class="col-sm-2">
-        <div class="logo">
-          <img src="./assets/aotp-logo.png" alt="aotp" />
+        <div class="logo" style="position: relative; display: block;">
+          <img style="position: absolute; display: block;" src="./assets/aotp-logo.png" alt="aotp" />
         </div>
       </div>
       <div class="col-sm-10 text-right" style="display: inline-table;">
         <ul>
           <li>
-            <router-link to="/">Home</router-link>
+            <router-link @click.native="$scrollToTop" to="/">Home</router-link>
           </li>
           <li>
-            <router-link to="/about">About</router-link>
+            <router-link @click.native="$scrollToTop" to="/about">About</router-link>
           </li>
+          <!-- <li>
+            <router-link @click.native="$scrollToTop" to="/news">News</router-link>
+          </li>-->
           <li>
-            <router-link to="/news">News</router-link>
+            <router-link @click.native="$scrollToTop" to="/music">Music</router-link>
           </li>
-          <li>
-            <router-link to="/music">Music</router-link>
-          </li>
-          <li>
-            <router-link to="/media">Lyrics</router-link>
-          </li>
+          <!-- <li>
+            <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
+          </li>-->
           <li>
             <router-link to="/media">Media</router-link>
           </li>
           <li>
-            <router-link to="/contact">Contact</router-link>
+            <router-link @click.native="$scrollToTop" to="/contact">Contact</router-link>
           </li>
         </ul>
       </div>
     </div>
     <router-view />
+    <div id="footer"></div>
   </div>
 </template>
 
@@ -50,14 +51,28 @@ export default {
   },
   methods: {
     updateScroll () {
-      window.removeEventListener('scroll', this.updateScroll);
-      this.isPassedSection1 = true;
+      if (window.scrollY > 10) {
+        this.isPassedSection1 = true;
+
+      } else {
+        this.isPassedSection1 = false;
+
+      }
     }
   },
   watch: {
     $route () {
       this.isPassedSection1 = true;
     }
+  },
+  computed: {
+    shrinkNav () {
+      console.log(this.$route.name);
+      return this.isPassedSection1 || this.$route.name != 'Home';
+    }
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.updateScroll);
   }
 };
 </script>
@@ -73,6 +88,7 @@ export default {
   margin: 0;
 }
 #nav {
+  height: 3rem;
   transition: all 0.65s ease;
   width: 100%;
   padding: 40px 0;
@@ -129,7 +145,6 @@ export default {
 
 #nav.shrink {
   background-color: rgba(0, 0, 0, 0.92);
-  height: 3rem;
   .logo {
     width: 8rem;
     top: -2.5rem;

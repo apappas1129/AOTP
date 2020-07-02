@@ -1,10 +1,12 @@
 <template>
-  <div class="btn" style="position: relative">
-    <svg style="position:absolute">
-      <rect x="0" y="0" fill="none" width="164" height="43" />
-    </svg>
-    <span class="fancy-btn-label">{{ label || 'Discover' }}</span>
-  </div>
+  <a href="https://open.spotify.com/artist/7buRLbM7otQjCWKwt7eDNZ" target="_blank">
+    <div class="btn" style="position: relative">
+      <svg style="position:absolute">
+        <rect x="0" y="0" fill="none" width="164" height="43" />
+      </svg>
+      <span class="fancy-btn-label">{{ label || 'Discover' }}</span>
+    </div>
+  </a>
 </template>
 
 <script>
