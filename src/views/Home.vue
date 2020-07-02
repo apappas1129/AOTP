@@ -20,7 +20,7 @@
           <video autoplay muted loop>
             <source src="../assets/videos/hands.mp4" type="video/mp4" />
           </video>
-          <div class="vd-overlay">
+          <div class="vd-overlay noselect">
             <h1>OUR</h1>
             <h1>MU</h1>
             <h1>SIC</h1>
@@ -28,7 +28,7 @@
         </div>
         <div class="col about-content">
           <div>
-            <h3 class="about">about</h3>
+            <h3 class="about noselect">about</h3>
           </div>
           <div class="logo3">
             <img src="../assets/aotp-logo-3.png" alt="aotp" />
@@ -44,11 +44,16 @@
     </section>
     <section style="height: 50vh">
       <div class="latest-news">
-        <div class="news-thumb" @click="tinyBoxNewsIndex = 0"></div>
+        <div
+          v-bind:style="{ backgroundImage: latestNews.thumbnailCSS }"
+          class="news-thumb"
+          @click="tinyBoxNewsIndex = 0"
+        ></div>
         <div class="news-content">
           <p class="sub-text">LATEST NEWS</p>
-          <h4>{{ tinyBoxNews[0].caption }}</h4>
-          <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
+          <h4>{{ latestNews.title }}</h4>
+          <p>{{ latestNews.body }}</p>
+          <p>{{ latestNews.date }}</p>
         </div>
       </div>
       <parallax fixed>
@@ -69,6 +74,10 @@
 </template>
 
 <script>
+import {
+  LatestNews as latestNews,
+  SocialLinks as socialLinks,
+} from '@/data'
 import HomeSlider from '@/components/HomeSlider.vue'
 import FancyBtn from '@/components/FancyBtn.vue'
 import NeomorphicPlayer from '@/components/NeomorphicPlayer.vue'
@@ -88,34 +97,12 @@ export default {
   },
   data () {
     return {
-      tinyBoxNews: [{ src: require('../assets/latest_news.jpg'), caption: 'AOTP bags record deal with Major Label, Warner Music Philippines.' }],
+      tinyBoxNews: [
+        { src: latestNews.thumbnail, caption: latestNews.title }
+      ],
       tinyBoxNewsIndex: null,
-      socialLinks: [
-        {
-          icon: 'lab la-spotify',
-          link: 'https://open.spotify.com/artist/7buRLbM7otQjCWKwt7eDNZ'
-        },
-        {
-          icon: 'lab la-itunes-note',
-          link: 'hhttps://music.apple.com/us/album/1454290175?ign-mpt=uo%3D4&app=music&at=1l3vpUI&ct=LFV_17e6d3204d852bcb961f4e0b06d311b8&lId=2302159&cId=none&sr=2&src=Linkfire&itscg=30440&itsct=catchall_p2&ls=1&fbclid=IwAR0V_0THRighVJqcaTErj-RUEteV8DdqhimF-AVWg0MC_J1zHrIygW3iCHg'
-        },
-        {
-          icon: 'lab la-youtube',
-          link: 'https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw'
-        },
-        {
-          icon: 'lab la-instagram',
-          link: 'https://www.instagram.com/aotpmusic/?igshid=1q216whjtb23x&fbclid=IwAR3zPCp2uR1PwexXNmVYwvm23YRd74dY-QPRjOnvKlogwfZL-69aDbuvVZg'
-        },
-        {
-          icon: 'lab la-facebook',
-          link: 'https://www.facebook.com/AOTPMUSIC/'
-        },
-        // {
-        //   icon: 'lab la-linkedin-in',
-        //   link: 'https://open.spotify.com/artist/7buRLbM7otQjCWKwt7eDNZ'
-        // },
-      ]
+      socialLinks,
+      latestNews
     }
   }
 }
@@ -231,7 +218,6 @@ h3.about {
 .news-thumb {
   height: 250px;
   width: 250px;
-  background-image: url('../assets/latest_news.jpg');
   background-size: cover;
   background-position-x: -81px;
   cursor: pointer;
