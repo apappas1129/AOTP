@@ -33,46 +33,43 @@
       </div>
     </div>
     <router-view />
-    <div id="footer"></div>
+    <div id="footer">foter</div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "App",
-  data () {
+  data() {
     return {
       isPassedSection1: false
-    }
+    };
   },
-  mounted () {
-    window.addEventListener('scroll', this.updateScroll);
+  mounted() {
+    window.addEventListener("scroll", this.updateScroll);
   },
   methods: {
-    updateScroll () {
+    updateScroll() {
       if (window.scrollY > 10) {
         this.isPassedSection1 = true;
-
       } else {
         this.isPassedSection1 = false;
-
       }
     }
   },
   watch: {
-    $route () {
+    $route() {
       this.isPassedSection1 = true;
     }
   },
   computed: {
-    shrinkNav () {
+    shrinkNav() {
       console.log(this.$route.name);
-      return this.isPassedSection1 || this.$route.name != 'Home';
+      return this.isPassedSection1 || this.$route.name != "Home";
     }
   },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.updateScroll);
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.updateScroll);
   }
 };
 </script>
@@ -86,6 +83,15 @@ export default {
   color: #2c3e50;
   padding: 0;
   margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: bolder;
+  font-family: "Questrial", sans-serif;
+  font-style: normal;
+  letter-spacing: 4px;
+  color: #333;
 }
 #nav {
   height: 3rem;
@@ -141,6 +147,11 @@ export default {
       width: 100%;
     }
   }
+}
+.content {
+  margin: 80px auto 0 auto !important;
+  max-width: calc(1100px + 3rem);
+  padding-top: 1rem;
 }
 
 #nav.shrink {
