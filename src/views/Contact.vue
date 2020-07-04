@@ -1,5 +1,5 @@
 <template>
-  <div class="row contact-us content">
+  <main role="main" class="row contact-us content container">
     <h1 class="col-md-12 text-left">contact us</h1>
     <div class="row contact-us-container justify-content-center col-md-12">
       <div class="contact-us-card col-md-10">
@@ -55,7 +55,7 @@
         </div>
       </div>-->
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -75,6 +75,7 @@ h1 {
     color: #fff;
   }
   margin: 80px auto 0 auto !important;
+  padding-bottom: 5% !important;
   .contact-us-container {
     .contact-us-card {
       .card {

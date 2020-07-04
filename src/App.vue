@@ -33,16 +33,105 @@
       </div>
     </div>
     <router-view />
-    <div id="footer">foter</div>
+    <footer id="footer" class="row page-footer">
+      <div class="row footer-container col-md-12 justify-content-center">
+        <div class="footer-album col-md-4 footer-section-header">
+          <div class="footer-section-header">
+            <h4>Our Albums</h4>
+          </div>
+          <ul>
+            <li>
+              <a
+                href="https://open.spotify.com/album/6VwP339X2mfJQV1YRvUN6b"
+                target="_blank"
+              >Contagious</a>
+            </li>
+            <li>
+              <a
+                href="https://open.spotify.com/album/0cNafd0Wkor62EFGsj0488"
+                target="_blank"
+              >Backwards</a>
+            </li>
+            <li>
+              <a
+                href="https://open.spotify.com/album/2LMXLpe4KvriuRtuBcnZms"
+                target="_blank"
+              >All Over The Place</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-socials col-md-4">
+          <div class="footer-section-header">
+            <h4>More about us</h4>
+          </div>
+          <a v-for="s in socialLinks" :key="s.link" :href="s.link" target="_blank">
+            <i :class="s.icon"></i>
+          </a>
+        </div>
+        <div class="footer-contact col-md-4">
+          <div class="footer-section-header">
+            <h4>Contact Us</h4>
+          </div>
+          <div class="row col-md-12 contact">
+            <p class="row col-md-12 text-left">
+              <strong>ELISHA GRACE</strong>
+            </p>
+            <ul class="col-md-12 text-left">
+              <li>
+                <strong>Email:</strong>&nbsp;
+                <a href="mailto:elishagraceaotp@gmail.com">elishagraceaotp@gmail.com</a>
+              </li>
+              <li>
+                <strong>Phone:</strong>&nbsp;
+                <p>+63 917 307 5664</p>
+              </li>
+              <li>
+                <strong>Facebook:</strong>&nbsp;
+                <p>fb.com/potatopotaterr</p>
+              </li>
+            </ul>
+          </div>
+          <div class="row col-md-12 contact">
+            <p class="row col-md-12 text-left">
+              <strong>LORENZO SAGA</strong>
+            </p>
+            <ul class="col-md-12 text-left">
+              <li>
+                <strong>Email:</strong>&nbsp;
+                <a href="mailto:marlofficial@gmail.com">marlofficial@gmail.com</a>
+              </li>
+              <li>
+                <strong>Phone:</strong>&nbsp;
+                <p>+63 926 932 4021</p>
+              </li>
+              <li>
+                <strong>Facebook:</strong>&nbsp;
+                <p>fb.com/lorenzosaga</p>
+              </li>
+            </ul>
+          </div>
+          <div class="row col-md-12 contact">
+            <ul class="col-md-12 text-left">
+              <li>
+                <strong>Email:</strong>&nbsp;
+                <a href="mailto:aotpmusic@gmail.com">aotpmusic@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
+import { SocialLinks as socialLinks } from "@/data";
 export default {
   name: "App",
   data() {
     return {
-      isPassedSection1: false
+      isPassedSection1: false,
+      socialLinks
     };
   },
   mounted() {
@@ -160,6 +249,58 @@ h3 {
     width: 8rem;
     top: -2.5rem;
     left: -2.5rem;
+  }
+}
+
+.page-footer {
+  padding: 2% 10%;
+  background: #1d1c21;
+  h4 {
+    color: #fff;
+  }
+  .footer-container {
+    .footer-section-header {
+      margin-bottom: 1em;
+    }
+    .footer-album {
+      ul {
+        padding-left: 0;
+        list-style: none;
+        li {
+          a {
+            color: #b1b1b1;
+          }
+        }
+      }
+    }
+    .footer-socials {
+      a {
+        padding: 0 5px;
+        i {
+          border: 2px solid #b7b7b7;
+          font-size: 3vh;
+          color: #b1b1b1;
+          padding: 5px;
+        }
+      }
+    }
+    .footer-contact {
+      .contact {
+        color: #b1b1b1;
+      }
+      ul {
+        list-style: none;
+        li {
+          display: inline-block;
+          a {
+            color: #b1b1b1;
+          }
+          p {
+            display: inline;
+          }
+        }
+      }
+    }
   }
 }
 </style>
