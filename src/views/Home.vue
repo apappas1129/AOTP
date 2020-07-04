@@ -34,7 +34,7 @@
             <img src="../assets/aotp-logo-3.png" alt="aotp" />
           </div>
 
-          <div>
+          <div class="about-text">
             <p
               style="margin: 1rem 8rem;"
             >A modern contemporary band from Dumaguete city. The 6 piece band comprises Sam Akins(Vocals), Pablo Punzalan(Guitar), Paolo Victor Ramos(Bass), JC Macahig(Keyboard), Jed Aromin(Drums) and JJ Macahig(Guitar). The band was put together for a battle of the bands competition held in August 2018 at Silliman University. They gained recognition after winning the contest and then got to open up for Rock Band IV Of Spades on their visit to Dumaguete weeks after. They also got to play alongside Ben&Ben for the first ever Sillimusika event in 2019, Parokya Ni Edgar at the annual Buglasan festival in Dumaguete city and Silent Sanctuary during Dumaguete's leg of Coke Studio.</p>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </section>
-    <section style="height: 50vh">
+    <section class="news" style="height: 50vh">
       <div class="latest-news">
         <div
           v-bind:style="{ backgroundImage: latestNews.thumbnailCSS }"
@@ -60,7 +60,7 @@
         <img src="../assets/cover-photo.png" alt="very cool bg" />
       </parallax>
     </section>
-    <section>
+    <section class="extra">
       <div class="row wyt">
         <div class="col-5 player-col">
           <neomorphic-player />
@@ -74,19 +74,16 @@
 </template>
 
 <script>
-import {
-  LatestNews as latestNews,
-  SocialLinks as socialLinks,
-} from '@/data'
-import HomeSlider from '@/components/HomeSlider.vue'
-import FancyBtn from '@/components/FancyBtn.vue'
-import NeomorphicPlayer from '@/components/NeomorphicPlayer.vue'
-import MiniGallery from '@/components/MiniGallery.vue'
-import Parallax from 'vue-parallaxy'
+import { LatestNews as latestNews, SocialLinks as socialLinks } from "@/data";
+import HomeSlider from "@/components/HomeSlider.vue";
+import FancyBtn from "@/components/FancyBtn.vue";
+import NeomorphicPlayer from "@/components/NeomorphicPlayer.vue";
+import MiniGallery from "@/components/MiniGallery.vue";
+import Parallax from "vue-parallaxy";
 import Tinybox from "vue-tinybox";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     HomeSlider,
     FancyBtn,
@@ -95,17 +92,15 @@ export default {
     MiniGallery,
     Tinybox
   },
-  data () {
+  data() {
     return {
-      tinyBoxNews: [
-        { src: latestNews.thumbnail, caption: latestNews.title }
-      ],
+      tinyBoxNews: [{ src: latestNews.thumbnail, caption: latestNews.title }],
       tinyBoxNewsIndex: null,
       socialLinks,
       latestNews
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -171,7 +166,7 @@ section {
 
   h1 {
     letter-spacing: 2rem;
-    font-family: 'Kanit', sans-serif;
+    font-family: "Kanit", sans-serif;
     font-size: 10rem;
     line-height: 9rem;
     margin-right: 5rem;
@@ -180,7 +175,7 @@ section {
 
 h3.about {
   font-weight: bolder;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
   font-style: normal;
   letter-spacing: 4px;
   color: #333;
@@ -238,7 +233,7 @@ h3.about {
   }
 
   h4 {
-    font-family: 'Questrial', sans-serif;
+    font-family: "Questrial", sans-serif;
     font-style: normal;
     font-weight: bold;
     margin-bottom: 1.5rem;
@@ -247,5 +242,64 @@ h3.about {
 
 .swiper-container.swiper.swiper-container-initialized {
   background: black;
+}
+
+@media only screen and (max-width: 1200px) {
+  .title {
+    width: 100%;
+    margin-right: 0 !important;
+    top: calc(10px + 25vh);
+  }
+  .social {
+    position: absolute;
+    z-index: 11;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    top: calc(100px + 60vh);
+    width: 100%;
+    margin: 0;
+  }
+  .about-section {
+    .about-vid-bg {
+      display: none;
+    }
+    .about-content {
+      .about-text {
+        p {
+          margin: 0 !important;
+          text-align: justify;
+        }
+      }
+    }
+  }
+  .news {
+    height: auto !important;
+    display: flex;
+    align-items: center;
+
+    .latest-news {
+      flex-direction: column;
+      .news-content {
+        width: 100%;
+      }
+    }
+  }
+  .extra {
+    height: auto;
+    .row.wyt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .player-col {
+        width: 100%;
+      }
+      .col {
+        width: 100%;
+        padding-bottom: 5em;
+      }
+    }
+  }
 }
 </style>
