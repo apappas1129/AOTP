@@ -1,12 +1,41 @@
 <template>
   <div id="app" class="container-fluid">
-    <div id="nav" class="row" v-bind:class="{ shrink : shrinkNav }">
+    <div id="nav" class="nav row" v-bind:class="{ shrink : shrinkNav }">
       <div class="col-sm-2">
         <div class="logo" style="position: relative; display: block;">
-          <img style="position: absolute; display: block;" src="./assets/aotp-logo.png" alt="aotp" />
+          <img src="./assets/aotp-logo.png" alt="aotp" />
         </div>
       </div>
       <div class="col-sm-10 text-right" style="display: inline-table;">
+        <ul>
+          <li>
+            <router-link @click.native="$scrollToTop" to="/">Home</router-link>
+          </li>
+          <li>
+            <router-link @click.native="$scrollToTop" to="/about">About</router-link>
+          </li>
+          <!-- <li>
+            <router-link @click.native="$scrollToTop" to="/news">News</router-link>
+          </li>-->
+          <li>
+            <router-link @click.native="$scrollToTop" to="/music">Music</router-link>
+          </li>
+          <!-- <li>
+            <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
+          </li>-->
+          <li>
+            <router-link to="/media">Media</router-link>
+          </li>
+          <li>
+            <router-link @click.native="$scrollToTop" to="/contact">Contact</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-mobile" v-bind:class="{open: isOpened}">
+      <i class="las la-bars" v-if="!isOpened" v-on:click="isOpened = !isOpened"></i>
+      <div class="text-right nav-items" v-if="isOpened" style="display: inline-table;">
+        <i class="las la-times" v-if="isOpened" v-on:click="isOpened = !isOpened"></i>
         <ul>
           <li>
             <router-link @click.native="$scrollToTop" to="/">Home</router-link>
@@ -130,6 +159,7 @@ export default {
   name: "App",
   data() {
     return {
+      isOpened: false,
       isPassedSection1: false,
       socialLinks
     };
@@ -250,6 +280,11 @@ h3 {
     top: -2.5rem;
     left: -2.5rem;
   }
+}
+
+.router-link-exact-active {
+  padding-bottom: 5px;
+  border-bottom: 3px solid #fff;
 }
 
 .page-footer {

@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap");
 body {
+  width: 100%;
   background: #eef3f7 !important;
 }
 
@@ -15,7 +16,7 @@ body {
 
 h1,
 h2 {
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
   font-style: normal;
   color: #333;
 }
@@ -24,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   color: #333;
 }
@@ -59,4 +60,73 @@ h1 {
 *::-webkit-scrollbar-thumb {
   background-color: #b8c7d1;
   border-radius: 3px;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+  .nav {
+    display: none !important;
+  }
+  .nav-mobile {
+    display: flex;
+    position: fixed;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    font-size: 2em;
+    color: #fff;
+    transition: 0.5s all;
+  }
+  .nav-mobile.open {
+    width: 100%;
+    right: 0;
+    background: #000000f7;
+    .nav-items {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        li {
+          padding: 0.5em;
+          a {
+            color: #fff;
+            width: 100%;
+            display: block;
+            transition: 0.5s all;
+          }
+          .router-link-exact-active:after {
+            display: block;
+            content: "";
+            border-bottom: 3px solid #fff !important;
+            transform: scaleX(1) !important;
+          }
+          .router-link-exact-active {
+            border: 0;
+          }
+          a:hover {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+          }
+          a:after {
+            display: block;
+            content: "";
+            transform: scaleX(0);
+            transition: transform 0.5s ease-in-out;
+          }
+          a:hover:after {
+            border-bottom: 3px solid #fff;
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
 }
