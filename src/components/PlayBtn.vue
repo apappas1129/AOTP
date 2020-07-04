@@ -14,7 +14,7 @@ export default {
 .video-play-button {
   position: absolute;
   z-index: 10;
-  top: 50%;
+  top: calc(50% - 80px);
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   box-sizing: content-box;

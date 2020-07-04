@@ -6,9 +6,9 @@
       </video>
     </div>
     <div class="media-wrapper">
-      <ul>
+      <play-btn v-if="!showEmbeds" @click.native="revealEmbeds()" class="that-button"></play-btn>
+      <ul v-if="showEmbeds" class="iframes" v-bind:class="{ 'no-opacity': !isOpaque }">
         <li>
-          <!-- <play-btn></play-btn> -->
           <iframe width="400" height="225" :src="ytList[0]"></iframe>
           <iframe width="400" height="225" :src="ytList[1]"></iframe>
         </li>
@@ -17,7 +17,7 @@
           <iframe width="400" height="225" :src="ytList[3]"></iframe>
         </li>
         <li>
-          <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw" style="padding: 2rem">
+          <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw">
             <h2>
               <i class="las la-play-circle"></i> Subscribe
             </h2>
@@ -29,12 +29,12 @@
 </template>
 
 <script>
-// import PlayBtn from '@/components/PlayBtn'
+import PlayBtn from '@/components/PlayBtn'
 
 export default {
   name: 'Media',
   components: {
-    // PlayBtn
+    PlayBtn
   },
   data () {
     return {
@@ -43,14 +43,42 @@ export default {
         'https://www.youtube.com/embed/0Szuyb3KE2c',
         'https://www.youtube.com/embed/x9v_vA6HKeE',
         'https://www.youtube.com/embed/LgzqL76OmOE'
-      ]
+      ],
+      showEmbeds: false,
+      isOpaque: false
     }
   },
+  methods: {
+    revealEmbeds () {
+      this.showEmbeds = true;
+      setTimeout(() => {
+        this.isOpaque = true;
+      }, 1000);
+    }
+  }
 
 }
 </script>
 
 <style lang="scss" scoped>
+ul.iframes.no-opacity {
+  opacity: 0 !important;
+  li {
+    opacity: 0 !important;
+  }
+}
+
+ul.iframes {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  transition: all 0.6s ease-in;
+  transition-delay: 1.4s;
+}
+
 h2 {
   position: absolute;
   right: 0;
@@ -61,7 +89,7 @@ h2 {
   font-weight: 200;
   font-size: 3.2rem;
   transition: all 0.5s;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   i {
     transform: scale(1.25);
   }
