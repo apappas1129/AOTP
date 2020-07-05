@@ -160,7 +160,14 @@ export default {
   metaInfo: {
     title: 'All Over The Place',
     // all titles will be injected into this template
-    titleTemplate: 'AOTP Official Website | $s'
+    titleTemplate: 'AOTP Official Website | $s',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'description', content: 'foo' },
+      { property: 'og:site_name', content: 'Vue Example' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') }
+    ]
   },
   data () {
     return {
