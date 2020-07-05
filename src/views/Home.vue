@@ -214,11 +214,14 @@ h3.about {
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 1rem;
 }
 
 .news-thumb {
   height: 250px;
   width: 250px;
+  min-height: 250px;
+  min-width: 250px;
   background-size: cover;
   background-position-x: -81px;
   cursor: pointer;
@@ -287,19 +290,7 @@ h3.about {
       }
     }
   }
-  .news {
-    height: auto !important;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
 
-    .latest-news {
-      flex-direction: column;
-      .news-content {
-        width: 100%;
-      }
-    }
-  }
   .extra {
     height: auto;
     .row.wyt {
@@ -331,6 +322,23 @@ h3.about {
   }
 }
 
+@media only screen and (max-width: 805px) {
+  .news {
+    height: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    .latest-news {
+      flex-direction: column;
+      .news-content {
+        width: 100%;
+        max-width: 500px;
+      }
+    }
+  }
+}
 @media only screen and (max-width: 725px) {
   .extra {
     height: 0px;
