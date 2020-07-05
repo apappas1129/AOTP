@@ -85,9 +85,7 @@ import Tinybox from "vue-tinybox";
 export default {
   name: "Home",
   metaInfo: {
-    // title will be injected into parent titleTemplate
-    title: 'AOTP Music Official Website',
-    titleTemplate: null
+    title: 'Home'
   },
   components: {
     HomeSlider,

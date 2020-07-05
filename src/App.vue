@@ -158,15 +158,27 @@ import { SocialLinks as socialLinks } from "@/data";
 export default {
   name: "App",
   metaInfo: {
-    title: 'All Over The Place',
+    title: 'AOTP Official Website',
     // all titles will be injected into this template
-    titleTemplate: 'AOTP Official Website | $s',
+    titleTemplate: 'AOTP Official Website | %s',
     meta: [
+      // Primary Meta Tags
+      { name: 'og:title', content: 'AOTP Official Website' },
+      { name: 'og:description', content: 'The official website of All Over The Place.' },
+      // Open Graph / Facebook
       { charset: 'utf-8' },
-      { name: 'description', content: 'foo' },
-      { property: 'og:site_name', content: 'Vue Example' },
+      { name: 'og:title', content: 'AOTP Official Website' },
+      { name: 'og:description', content: 'The official website of All Over The Place.' },
+      { name: 'og:url', content: 'https://www.aotpmusic.com' },
+      { property: 'og:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') },
       { property: 'og:type', content: 'website' },
-      { property: 'og:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') }
+      { property: 'og:site_name', content: 'AOTP Music Official Website' },
+      // Twitter
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:url', content: 'https://www.aotpmusic.com' },
+      { name: 'twitter:title', content: 'AOTP Official Website' },
+      { name: 'twitter:description', content: 'The official website of All Over The Place.' },
+      { property: 'twitter:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') },
     ]
   },
   data () {
