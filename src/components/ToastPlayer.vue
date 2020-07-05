@@ -33,26 +33,35 @@
 </template>
 
 <script>
-import { PlayList } from '@/data'
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'toast-player',
   data () {
     return {
       audio: null,
-      duration: null,
-      currentTime: null,
-      isTimerPlaying: false,
-      currentTrack: null,
-      currentTrackIndex: 0,
-      tracks: PlayList,
       isMinimized: true
     };
   },
+  computed: {
+    ...mapGetters({
+      playerInfo: 'getPlayerInfo',
+      isTimerPlaying: 'getIsTimerPlaying',
+      tracks: 'getTracks',
+      currentTrack: 'getCurrentTrack',
+      currentTrackIndex: 'getCurrentTrackIndex'
+    })
+  },
   methods: {
-    play () {
-      // play or pause using audio.paused bool
-    },
+    ...mapActions([
+      'play',
+      'updateBar',
+      'pTrack',
+      'nTrack',
+      'resetPlayer',
+      'favorite',
+      'initiate',
+    ]),
   }
 }
 </script>
