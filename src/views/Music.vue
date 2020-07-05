@@ -37,6 +37,10 @@ import { PlayList as playlist } from '@/data'
 
 export default {
   name: 'Music',
+  metaInfo: {
+    // title will be injected into parent titleTemplate
+    title: 'Our Music'
+  },
   data () {
     return {
       playlist
@@ -57,8 +61,6 @@ export default {
   padding-top: 1rem;
   .music-list-container {
     padding-left: 3rem;
-    max-height: calc(100vh - 6rem - 80px);
-    overflow-y: auto;
     overflow-x: hidden;
     padding-top: 1rem;
     .music-list {

@@ -1,11 +1,15 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+import VueMeta from 'vue-meta';
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'line-awesome/dist/line-awesome/css/line-awesome.css';
 Vue.config.productionTip = false;
+
+// Use plugins by calling the Vue.use() global method. This has to be done before you start your app by calling new Vue()
+Vue.use(VueMeta);
 
 new Vue({
   router,

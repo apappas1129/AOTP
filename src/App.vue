@@ -157,18 +157,41 @@
 import { SocialLinks as socialLinks } from "@/data";
 export default {
   name: "App",
-  data() {
+  metaInfo: {
+    title: 'AOTP Official Website',
+    // all titles will be injected into this template
+    titleTemplate: 'AOTP Official Website | %s',
+    meta: [
+      // Primary Meta Tags
+      { name: 'og:title', content: 'AOTP Official Website' },
+      { name: 'og:description', content: 'The official website of All Over The Place.' },
+      // Open Graph / Facebook
+      { property: 'og:title', content: 'AOTP Official Website' },
+      { property: 'og:description', content: 'The official website of All Over The Place.' },
+      { property: 'og:url', content: 'https://www.aotpmusic.com' },
+      { property: 'og:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: 'AOTP Music Official Website' },
+      // Twitter
+      { property: 'twitter:card', content: 'summary_large_image' },
+      { property: 'twitter:url', content: 'https://www.aotpmusic.com' },
+      { property: 'twitter:title', content: 'AOTP Official Website' },
+      { property: 'twitter:description', content: 'The official website of All Over The Place.' },
+      { property: 'twitter:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') },
+    ]
+  },
+  data () {
     return {
       isOpened: false,
       isPassedSection1: false,
       socialLinks
     };
   },
-  mounted() {
+  mounted () {
     window.addEventListener("scroll", this.updateScroll);
   },
   methods: {
-    updateScroll() {
+    updateScroll () {
       if (window.scrollY > 10) {
         this.isPassedSection1 = true;
       } else {
@@ -177,17 +200,17 @@ export default {
     }
   },
   watch: {
-    $route() {
+    $route () {
       this.isPassedSection1 = true;
     }
   },
   computed: {
-    shrinkNav() {
+    shrinkNav () {
       console.log(this.$route.name);
       return this.isPassedSection1 || this.$route.name != "Home";
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     window.removeEventListener("scroll", this.updateScroll);
   }
 };
@@ -207,7 +230,7 @@ h1,
 h2,
 h3 {
   font-weight: bolder;
-  font-family: "Questrial", sans-serif;
+  font-family: 'Questrial', sans-serif;
   font-style: normal;
   letter-spacing: 4px;
   color: #333;
@@ -288,7 +311,7 @@ h3 {
 }
 
 .page-footer {
-  padding: 2% 10%;
+  padding: 0 10% 2% 10%;
   background: #1d1c21;
   h4 {
     color: #fff;
@@ -297,6 +320,13 @@ h3 {
     .footer-section-header {
       margin-bottom: 1em;
     }
+
+    .footer-album,
+    .footer-socials,
+    .footer-contact {
+      margin-top: 1rem;
+    }
+
     .footer-album {
       ul {
         padding-left: 0;
@@ -326,7 +356,6 @@ h3 {
       ul {
         list-style: none;
         li {
-          display: inline-block;
           a {
             color: #b1b1b1;
           }
@@ -336,6 +365,12 @@ h3 {
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-contact {
+    max-width: 350px;
   }
 }
 
