@@ -9,8 +9,8 @@
         </a>
       </div>
       <div class="title">
-        <h1 class="noselect" style="margin-bottom: 0">all over the place</h1>
-        <h5>The uncertainty that gives us something to look forward</h5>
+        <h1 class="noselect" style="margin-bottom: 0; color: white;">all over the place</h1>
+        <h5 style=" color: white;">The uncertainty that gives us something to look forward</h5>
         <fancy-btn style="margin-top: 2rem; pointer-events: all;" />
       </div>
     </section>
@@ -21,13 +21,13 @@
             <source src="../assets/videos/hands.mp4" type="video/mp4" />
           </video>
           <div class="vd-overlay noselect">
-            <h1>OUR</h1>
-            <h1>MU</h1>
-            <h1>SIC</h1>
+            <h1 style=" color: white;">OUR</h1>
+            <h1 style=" color: white;">MU</h1>
+            <h1 style=" color: white;">SIC</h1>
           </div>
         </div>
         <div class="col about-content">
-          <div>
+          <div class="abt-wrap">
             <h3 class="about noselect">about</h3>
           </div>
           <div class="logo3">
@@ -50,10 +50,10 @@
           @click="tinyBoxNewsIndex = 0"
         ></div>
         <div class="news-content">
-          <p class="sub-text">LATEST NEWS</p>
-          <h4>{{ latestNews.title }}</h4>
-          <p>{{ latestNews.body }}</p>
-          <p>{{ latestNews.date }}</p>
+          <p class="sub-text" style=" color: white;">LATEST NEWS</p>
+          <h4 style=" color: white;">{{ latestNews.title }}</h4>
+          <p style=" color: white;">{{ latestNews.body }}</p>
+          <p style=" color: white;">{{ latestNews.date }}</p>
         </div>
       </div>
       <parallax fixed>
@@ -65,7 +65,7 @@
         <div class="col-5 player-col">
           <neomorphic-player />
         </div>
-        <div class="col">
+        <div class="col mini-gallery-column">
           <mini-gallery></mini-gallery>
         </div>
       </div>
@@ -84,6 +84,11 @@ import Tinybox from "vue-tinybox";
 
 export default {
   name: "Home",
+  metaInfo: {
+    // title will be injected into parent titleTemplate
+    title: 'AOTP Music Official Website',
+    titleTemplate: null
+  },
   components: {
     HomeSlider,
     FancyBtn,
@@ -92,7 +97,7 @@ export default {
     MiniGallery,
     Tinybox
   },
-  data() {
+  data () {
     return {
       tinyBoxNews: [{ src: latestNews.thumbnail, caption: latestNews.title }],
       tinyBoxNewsIndex: null,
@@ -106,6 +111,7 @@ export default {
 <style lang="scss" scoped>
 section {
   height: 100vh;
+  min-height: 570px;
 }
 .slider-section {
   width: 100%;
@@ -166,7 +172,7 @@ section {
 
   h1 {
     letter-spacing: 2rem;
-    font-family: "Kanit", sans-serif;
+    font-family: 'Kanit', sans-serif;
     font-size: 10rem;
     line-height: 9rem;
     margin-right: 5rem;
@@ -175,7 +181,7 @@ section {
 
 h3.about {
   font-weight: bolder;
-  font-family: "Questrial", sans-serif;
+  font-family: 'Questrial', sans-serif;
   font-style: normal;
   letter-spacing: 4px;
   color: #333;
@@ -233,7 +239,7 @@ h3.about {
   }
 
   h4 {
-    font-family: "Questrial", sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-style: normal;
     font-weight: bold;
     margin-bottom: 1.5rem;
@@ -243,7 +249,6 @@ h3.about {
 .swiper-container.swiper.swiper-container-initialized {
   background: black;
 }
-
 @media only screen and (max-width: 1200px) {
   .title {
     width: 100%;
@@ -262,13 +267,19 @@ h3.about {
     margin: 0;
   }
   .about-section {
+    .abt-wrap,
+    .logo3 {
+      position: relative;
+      top: -1rem;
+    }
     .about-vid-bg {
       display: none;
     }
     .about-content {
       .about-text {
         p {
-          margin: 0 !important;
+          max-width: 70%;
+          margin: 0 auto !important;
           text-align: justify;
         }
       }
@@ -300,6 +311,33 @@ h3.about {
         padding-bottom: 5em;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 859px) {
+  .social {
+    top: unset;
+    bottom: 3rem;
+  }
+  .title {
+    top: 18vh;
+    h5 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-height: 725px) {
+  .mini-gallery-column {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 565px) {
+  .social {
+    position: relative;
+    top: -6rem;
   }
 }
 </style>

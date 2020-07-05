@@ -33,6 +33,10 @@ import PlayBtn from '@/components/PlayBtn'
 
 export default {
   name: 'Media',
+  metaInfo: {
+    // title will be injected into parent titleTemplate
+    title: 'Media'
+  },
   components: {
     PlayBtn
   },

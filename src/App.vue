@@ -157,18 +157,23 @@
 import { SocialLinks as socialLinks } from "@/data";
 export default {
   name: "App",
-  data() {
+  metaInfo: {
+    title: 'All Over The Place',
+    // all titles will be injected into this template
+    titleTemplate: 'AOTP Official Website | $s'
+  },
+  data () {
     return {
       isOpened: false,
       isPassedSection1: false,
       socialLinks
     };
   },
-  mounted() {
+  mounted () {
     window.addEventListener("scroll", this.updateScroll);
   },
   methods: {
-    updateScroll() {
+    updateScroll () {
       if (window.scrollY > 10) {
         this.isPassedSection1 = true;
       } else {
@@ -177,17 +182,17 @@ export default {
     }
   },
   watch: {
-    $route() {
+    $route () {
       this.isPassedSection1 = true;
     }
   },
   computed: {
-    shrinkNav() {
+    shrinkNav () {
       console.log(this.$route.name);
       return this.isPassedSection1 || this.$route.name != "Home";
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     window.removeEventListener("scroll", this.updateScroll);
   }
 };
@@ -207,7 +212,7 @@ h1,
 h2,
 h3 {
   font-weight: bolder;
-  font-family: "Questrial", sans-serif;
+  font-family: 'Questrial', sans-serif;
   font-style: normal;
   letter-spacing: 4px;
   color: #333;
@@ -288,7 +293,7 @@ h3 {
 }
 
 .page-footer {
-  padding: 2% 10%;
+  padding: 0 10% 2% 10%;
   background: #1d1c21;
   h4 {
     color: #fff;
@@ -297,6 +302,13 @@ h3 {
     .footer-section-header {
       margin-bottom: 1em;
     }
+
+    .footer-album,
+    .footer-socials,
+    .footer-contact {
+      margin-top: 1rem;
+    }
+
     .footer-album {
       ul {
         padding-left: 0;
@@ -326,7 +338,6 @@ h3 {
       ul {
         list-style: none;
         li {
-          display: inline-block;
           a {
             color: #b1b1b1;
           }
@@ -336,6 +347,12 @@ h3 {
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-contact {
+    max-width: 350px;
   }
 }
 </style>

@@ -59,7 +59,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+    // title will be injected into parent titleTemplate
+    title: 'Contact Us'
+  },
+};
 </script>
 
 <style lang="scss" scoped>
