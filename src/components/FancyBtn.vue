@@ -52,11 +52,12 @@ export default {
 }
 
 .fancy-btn-label {
-  color: white;
+  color: #fff;
   display: inline-block;
-  padding-top: 3px;
-  font-family: 'Questrial', sans-serif;
+  position: relative;
+  font-family: Questrial, sans-serif;
   font-style: normal;
   font-size: 18px;
+  top: -5px;
 }
 </style>
