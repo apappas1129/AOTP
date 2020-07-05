@@ -1,11 +1,11 @@
 <template>
-  <div style="margin-top:80px; overflow-y: auto">
+  <div style="overflow-y: auto" class="page-nav-margin">
     <div class="row">
       <div class="col-12 about-wrapper">
         <div style="display: inline-flex; margin: 0px auto; max-width: 1100px;">
-          <div>
+          <div class="div-content">
             <h1>about us</h1>
-            <div style="max-height: 300px; overflow-y: auto">
+            <div class="about-article">
               <p>
                 <a href="#">All Over The Place</a> (
                 <i>aka</i> AOTP) is a modern contemporary band from Dumaguete city.
@@ -80,8 +80,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="the-band-wrapper">
-        <h1>the band</h1>
+      <div class="the-band-wrapper div-content">
+        <h1 class="the-band">the band</h1>
         <band-grid></band-grid>
       </div>
     </div>
@@ -93,6 +93,10 @@ import BandGrid from '@/components/BandGrid.vue';
 
 export default {
   name: 'About',
+  metaInfo: {
+    // title will be injected into parent titleTemplate
+    title: 'About Us'
+  },
   components: { BandGrid }
 }
 
@@ -235,5 +239,29 @@ i.map {
   letter-spacing: -6px;
   position: relative;
   top: 2px;
+}
+
+.about-article {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 1140px) {
+  .div-content {
+    padding-left: 1rem;
+  }
+
+  .about-article {
+    max-height: unset;
+    overflow-y: unset;
+  }
+
+  .about-main-photo {
+    display: none;
+  }
+
+  h1.the-band {
+    padding-left: 1rem;
+  }
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="container-fluid">
-    <div id="nav" class="row" v-bind:class="{ shrink : shrinkNav }">
+    <div id="nav" class="nav row" v-bind:class="{ shrink : shrinkNav }">
       <div class="col-sm-2">
         <div class="logo" style="position: relative; display: block;">
-          <img style="position: absolute; display: block;" src="./assets/aotp-logo.png" alt="aotp" />
+          <img src="./assets/aotp-logo.png" alt="aotp" />
         </div>
       </div>
       <div class="col-sm-10 text-right" style="display: inline-table;">
@@ -32,31 +32,159 @@
         </ul>
       </div>
     </div>
+    <div class="nav-mobile" v-bind:class="{open: isOpened}">
+      <i class="las la-bars" v-if="!isOpened" v-on:click="isOpened = !isOpened"></i>
+      <div class="text-right nav-items" v-if="isOpened" style="display: inline-table;">
+        <i class="las la-times" v-if="isOpened" v-on:click="isOpened = !isOpened"></i>
+        <ul>
+          <li>
+            <router-link @click.native="$scrollToTop" to="/">Home</router-link>
+          </li>
+          <li>
+            <router-link @click.native="$scrollToTop" to="/about">About</router-link>
+          </li>
+          <!-- <li>
+            <router-link @click.native="$scrollToTop" to="/news">News</router-link>
+          </li>-->
+          <li>
+            <router-link @click.native="$scrollToTop" to="/music">Music</router-link>
+          </li>
+          <!-- <li>
+            <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
+          </li>-->
+          <li>
+            <router-link to="/media">Media</router-link>
+          </li>
+          <li>
+            <router-link @click.native="$scrollToTop" to="/contact">Contact</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
     <router-view />
-    <div id="footer"></div>
+    <footer id="footer" class="row page-footer">
+      <div class="row footer-container col-md-12 justify-content-center">
+        <div class="footer-album col-md-4 footer-section-header">
+          <div class="footer-section-header">
+            <h4>Our Albums</h4>
+          </div>
+          <ul>
+            <li>
+              <a
+                href="https://open.spotify.com/album/6VwP339X2mfJQV1YRvUN6b"
+                target="_blank"
+              >Contagious</a>
+            </li>
+            <li>
+              <a
+                href="https://open.spotify.com/album/0cNafd0Wkor62EFGsj0488"
+                target="_blank"
+              >Backwards</a>
+            </li>
+            <li>
+              <a
+                href="https://open.spotify.com/album/2LMXLpe4KvriuRtuBcnZms"
+                target="_blank"
+              >All Over The Place</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-socials col-md-4">
+          <div class="footer-section-header">
+            <h4>More about us</h4>
+          </div>
+          <a v-for="s in socialLinks" :key="s.link" :href="s.link" target="_blank">
+            <i :class="s.icon"></i>
+          </a>
+        </div>
+        <div class="footer-contact col-md-4">
+          <div class="footer-section-header">
+            <h4>Contact Us</h4>
+          </div>
+          <div class="row col-md-12 contact">
+            <p class="row col-md-12 text-left">
+              <strong>ELISHA GRACE</strong>
+            </p>
+            <ul class="col-md-12 text-left">
+              <li>
+                <strong>Email:</strong>&nbsp;
+                <a href="mailto:elishagraceaotp@gmail.com">elishagraceaotp@gmail.com</a>
+              </li>
+              <li>
+                <strong>Phone:</strong>&nbsp;
+                <p>+63 917 307 5664</p>
+              </li>
+              <li>
+                <strong>Facebook:</strong>&nbsp;
+                <p>fb.com/potatopotaterr</p>
+              </li>
+            </ul>
+          </div>
+          <div class="row col-md-12 contact">
+            <p class="row col-md-12 text-left">
+              <strong>LORENZO SAGA</strong>
+            </p>
+            <ul class="col-md-12 text-left">
+              <li>
+                <strong>Email:</strong>&nbsp;
+                <a href="mailto:marlofficial@gmail.com">marlofficial@gmail.com</a>
+              </li>
+              <li>
+                <strong>Phone:</strong>&nbsp;
+                <p>+63 926 932 4021</p>
+              </li>
+              <li>
+                <strong>Facebook:</strong>&nbsp;
+                <p>fb.com/lorenzosaga</p>
+              </li>
+            </ul>
+          </div>
+          <div class="row col-md-12 contact">
+            <ul class="col-md-12 text-left">
+              <li>
+                <strong>Email:</strong>&nbsp;
+                <a href="mailto:aotpmusic@gmail.com">aotpmusic@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
-
+import { SocialLinks as socialLinks } from "@/data";
 export default {
   name: "App",
+  metaInfo: {
+    title: 'All Over The Place',
+    // all titles will be injected into this template
+    titleTemplate: 'AOTP Official Website | $s',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'description', content: 'foo' },
+      { property: 'og:site_name', content: 'Vue Example' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') }
+    ]
+  },
   data () {
     return {
-      isPassedSection1: false
-    }
+      isOpened: false,
+      isPassedSection1: false,
+      socialLinks
+    };
   },
   mounted () {
-    window.addEventListener('scroll', this.updateScroll);
+    window.addEventListener("scroll", this.updateScroll);
   },
   methods: {
     updateScroll () {
       if (window.scrollY > 10) {
         this.isPassedSection1 = true;
-
       } else {
         this.isPassedSection1 = false;
-
       }
     }
   },
@@ -68,11 +196,11 @@ export default {
   computed: {
     shrinkNav () {
       console.log(this.$route.name);
-      return this.isPassedSection1 || this.$route.name != 'Home';
+      return this.isPassedSection1 || this.$route.name != "Home";
     }
   },
   beforeDestroy () {
-    window.removeEventListener('scroll', this.updateScroll);
+    window.removeEventListener("scroll", this.updateScroll);
   }
 };
 </script>
@@ -86,6 +214,15 @@ export default {
   color: #2c3e50;
   padding: 0;
   margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: bolder;
+  font-family: 'Questrial', sans-serif;
+  font-style: normal;
+  letter-spacing: 4px;
+  color: #333;
 }
 #nav {
   height: 3rem;
@@ -142,6 +279,11 @@ export default {
     }
   }
 }
+.content {
+  margin: 80px auto 0 auto !important;
+  max-width: calc(1100px + 3rem);
+  padding-top: 1rem;
+}
 
 #nav.shrink {
   background-color: rgba(0, 0, 0, 0.92);
@@ -149,6 +291,75 @@ export default {
     width: 8rem;
     top: -2.5rem;
     left: -2.5rem;
+  }
+}
+
+.router-link-exact-active {
+  padding-bottom: 5px;
+  border-bottom: 3px solid #fff;
+}
+
+.page-footer {
+  padding: 0 10% 2% 10%;
+  background: #1d1c21;
+  h4 {
+    color: #fff;
+  }
+  .footer-container {
+    .footer-section-header {
+      margin-bottom: 1em;
+    }
+
+    .footer-album,
+    .footer-socials,
+    .footer-contact {
+      margin-top: 1rem;
+    }
+
+    .footer-album {
+      ul {
+        padding-left: 0;
+        list-style: none;
+        li {
+          a {
+            color: #b1b1b1;
+          }
+        }
+      }
+    }
+    .footer-socials {
+      a {
+        padding: 0 5px;
+        i {
+          border: 2px solid #b7b7b7;
+          font-size: 3vh;
+          color: #b1b1b1;
+          padding: 5px;
+        }
+      }
+    }
+    .footer-contact {
+      .contact {
+        color: #b1b1b1;
+      }
+      ul {
+        list-style: none;
+        li {
+          a {
+            color: #b1b1b1;
+          }
+          p {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-contact {
+    max-width: 350px;
   }
 }
 </style>

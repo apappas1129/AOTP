@@ -9,8 +9,8 @@
         </a>
       </div>
       <div class="title">
-        <h1 class="noselect" style="margin-bottom: 0">all over the place</h1>
-        <h5>The uncertainty that gives us something to look forward</h5>
+        <h1 class="noselect" style="margin-bottom: 0; color: white;">all over the place</h1>
+        <h5 style=" color: white;">The uncertainty that gives us something to look forward</h5>
         <fancy-btn style="margin-top: 2rem; pointer-events: all;" />
       </div>
     </section>
@@ -21,20 +21,20 @@
             <source src="../assets/videos/hands.mp4" type="video/mp4" />
           </video>
           <div class="vd-overlay noselect">
-            <h1>OUR</h1>
-            <h1>MU</h1>
-            <h1>SIC</h1>
+            <h1 style=" color: white;">OUR</h1>
+            <h1 style=" color: white;">MU</h1>
+            <h1 style=" color: white;">SIC</h1>
           </div>
         </div>
         <div class="col about-content">
-          <div>
+          <div class="abt-wrap">
             <h3 class="about noselect">about</h3>
           </div>
           <div class="logo3">
             <img src="../assets/aotp-logo-3.png" alt="aotp" />
           </div>
 
-          <div>
+          <div class="about-text">
             <p
               style="margin: 1rem 8rem;"
             >A modern contemporary band from Dumaguete city. The 6 piece band comprises Sam Akins(Vocals), Pablo Punzalan(Guitar), Paolo Victor Ramos(Bass), JC Macahig(Keyboard), Jed Aromin(Drums) and JJ Macahig(Guitar). The band was put together for a battle of the bands competition held in August 2018 at Silliman University. They gained recognition after winning the contest and then got to open up for Rock Band IV Of Spades on their visit to Dumaguete weeks after. They also got to play alongside Ben&Ben for the first ever Sillimusika event in 2019, Parokya Ni Edgar at the annual Buglasan festival in Dumaguete city and Silent Sanctuary during Dumaguete's leg of Coke Studio.</p>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </section>
-    <section style="height: 50vh">
+    <section class="news" style="height: 50vh">
       <div class="latest-news">
         <div
           v-bind:style="{ backgroundImage: latestNews.thumbnailCSS }"
@@ -50,22 +50,22 @@
           @click="tinyBoxNewsIndex = 0"
         ></div>
         <div class="news-content">
-          <p class="sub-text">LATEST NEWS</p>
-          <h4>{{ latestNews.title }}</h4>
-          <p>{{ latestNews.body }}</p>
-          <p>{{ latestNews.date }}</p>
+          <p class="sub-text" style=" color: white;">LATEST NEWS</p>
+          <h4 style=" color: white;">{{ latestNews.title }}</h4>
+          <p style=" color: white;">{{ latestNews.body }}</p>
+          <p style=" color: white;">{{ latestNews.date }}</p>
         </div>
       </div>
       <parallax fixed>
         <img src="../assets/cover-photo.png" alt="very cool bg" />
       </parallax>
     </section>
-    <section>
+    <section class="extra">
       <div class="row wyt">
         <div class="col-5 player-col">
           <neomorphic-player />
         </div>
-        <div class="col">
+        <div class="col mini-gallery-column">
           <mini-gallery></mini-gallery>
         </div>
       </div>
@@ -74,19 +74,21 @@
 </template>
 
 <script>
-import {
-  LatestNews as latestNews,
-  SocialLinks as socialLinks,
-} from '@/data'
-import HomeSlider from '@/components/HomeSlider.vue'
-import FancyBtn from '@/components/FancyBtn.vue'
-import NeomorphicPlayer from '@/components/NeomorphicPlayer.vue'
-import MiniGallery from '@/components/MiniGallery.vue'
-import Parallax from 'vue-parallaxy'
+import { LatestNews as latestNews, SocialLinks as socialLinks } from "@/data";
+import HomeSlider from "@/components/HomeSlider.vue";
+import FancyBtn from "@/components/FancyBtn.vue";
+import NeomorphicPlayer from "@/components/NeomorphicPlayer.vue";
+import MiniGallery from "@/components/MiniGallery.vue";
+import Parallax from "vue-parallaxy";
 import Tinybox from "vue-tinybox";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  metaInfo: {
+    // title will be injected into parent titleTemplate
+    title: 'AOTP Music Official Website',
+    titleTemplate: null
+  },
   components: {
     HomeSlider,
     FancyBtn,
@@ -97,20 +99,19 @@ export default {
   },
   data () {
     return {
-      tinyBoxNews: [
-        { src: latestNews.thumbnail, caption: latestNews.title }
-      ],
+      tinyBoxNews: [{ src: latestNews.thumbnail, caption: latestNews.title }],
       tinyBoxNewsIndex: null,
       socialLinks,
       latestNews
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 section {
   height: 100vh;
+  min-height: 570px;
 }
 .slider-section {
   width: 100%;
@@ -247,5 +248,96 @@ h3.about {
 
 .swiper-container.swiper.swiper-container-initialized {
   background: black;
+}
+@media only screen and (max-width: 1200px) {
+  .title {
+    width: 100%;
+    margin-right: 0 !important;
+    top: calc(10px + 25vh);
+  }
+  .social {
+    position: absolute;
+    z-index: 11;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    top: calc(100px + 60vh);
+    width: 100%;
+    margin: 0;
+  }
+  .about-section {
+    .abt-wrap,
+    .logo3 {
+      position: relative;
+      top: -1rem;
+    }
+    .about-vid-bg {
+      display: none;
+    }
+    .about-content {
+      .about-text {
+        p {
+          max-width: 70%;
+          margin: 0 auto !important;
+          text-align: justify;
+        }
+      }
+    }
+  }
+  .news {
+    height: auto !important;
+    display: flex;
+    align-items: center;
+
+    .latest-news {
+      flex-direction: column;
+      .news-content {
+        width: 100%;
+      }
+    }
+  }
+  .extra {
+    height: auto;
+    .row.wyt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .player-col {
+        width: 100%;
+      }
+      .col {
+        width: 100%;
+        padding-bottom: 5em;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 859px) {
+  .social {
+    top: unset;
+    bottom: 3rem;
+  }
+  .title {
+    top: 18vh;
+    h5 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-height: 725px) {
+  .mini-gallery-column {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 565px) {
+  .social {
+    position: relative;
+    top: -6rem;
+  }
 }
 </style>
