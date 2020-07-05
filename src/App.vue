@@ -64,7 +64,7 @@
     <router-view />
     <footer id="footer" class="row page-footer">
       <div class="row footer-container col-md-12 justify-content-center">
-        <div class="footer-album col-md-4 footer-section-header">
+        <div class="footer-album col-md-4">
           <div class="footer-section-header">
             <h4>Our Albums</h4>
           </div>
@@ -335,6 +335,27 @@ h3 {
           }
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .page-footer {
+    padding: 2% 0;
+    .footer-contact {
+      p {
+        display: block;
+        text-align: center !important;
+      }
+      ul {
+        text-align: center !important;
+      }
+    }
+    
+    .footer-album,
+    .footer-socials,
+    .footer-contact {
+      margin: 1em 0;
     }
   }
 }

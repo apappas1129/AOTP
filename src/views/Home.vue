@@ -3,15 +3,17 @@
     <Tinybox no-thumbs v-model="tinyBoxNewsIndex" :images="tinyBoxNews" />
     <section class="row slider-section">
       <HomeSlider />
-      <div class="social">
-        <a v-for="s in socialLinks" :key="s.link" :href="s.link" target="_blank">
-          <i :class="s.icon"></i>
-        </a>
-      </div>
-      <div class="title">
-        <h1 class="noselect" style="margin-bottom: 0">all over the place</h1>
-        <h5>The uncertainty that gives us something to look forward</h5>
-        <fancy-btn style="margin-top: 2rem; pointer-events: all;" />
+      <div class="social-title">
+        <div class="social">
+          <a v-for="s in socialLinks" :key="s.link" :href="s.link" target="_blank">
+            <i :class="s.icon"></i>
+          </a>
+        </div>
+        <div class="title">
+          <h1 class="noselect" style="margin-bottom: 0">all over the place</h1>
+          <h5>The uncertainty that gives us something to look forward</h5>
+          <fancy-btn style="margin-top: 2rem; pointer-events: all;" />
+        </div>
       </div>
     </section>
     <section class="about-section">
@@ -111,31 +113,34 @@ section {
   width: 100%;
   margin: 0;
 }
-.social {
-  position: absolute;
-  z-index: 11;
-  bottom: 0;
-  margin: 0 0 8rem 8rem;
-  height: 300px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  i {
-    font-size: 46px;
-    color: white;
-    transition: all 0.2s ease-in-out;
+.social-title {
+  .social {
+    position: absolute;
+    z-index: 11;
+    bottom: 0;
+    left: 0;
+    margin: 0 0 8rem 8rem;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    i {
+      font-size: 46px;
+      color: white;
+      transition: all 0.2s ease-in-out;
+    }
+    i:hover {
+      transform: scale(1.2);
+    }
   }
-  i:hover {
-    transform: scale(1.2);
+  .title {
+    position: absolute;
+    right: 0;
+    z-index: 13;
+    top: calc(80px + 25vh);
+    margin-right: 8rem;
+    pointer-events: none;
   }
-}
-.title {
-  position: absolute;
-  right: 0;
-  z-index: 13;
-  top: calc(80px + 25vh);
-  margin-right: 8rem;
-  pointer-events: none;
 }
 
 .about-vid-bg {
@@ -245,21 +250,35 @@ h3.about {
 }
 
 @media only screen and (max-width: 1200px) {
-  .title {
-    width: 100%;
-    margin-right: 0 !important;
-    top: calc(10px + 25vh);
-  }
-  .social {
+  .social-title {
     position: absolute;
-    z-index: 11;
-    height: auto;
+    top: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    flex-direction: row;
-    top: calc(100px + 60vh);
-    width: 100%;
-    margin: 0;
+    align-items: center;
+    flex-direction: column-reverse;
+    .title {
+      position: unset;
+      width: 100%;
+      margin-right: 0 !important;
+      top: unset;
+      h1 {
+        font-size: 12vh;
+      }
+    }
+    .social {
+      position: unset;
+      z-index: 11;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      top: unset;
+      width: 100%;
+      margin: 2em 0;
+    }
   }
   .about-section {
     .about-vid-bg {
@@ -281,8 +300,11 @@ h3.about {
 
     .latest-news {
       flex-direction: column;
+      padding: 5em 0;
       .news-content {
+        height: auto;
         width: 100%;
+        padding: 2rem;
       }
     }
   }
@@ -300,6 +322,12 @@ h3.about {
         padding-bottom: 5em;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .extra {
+    display: none;
   }
 }
 </style>
