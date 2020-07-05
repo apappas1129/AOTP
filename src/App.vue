@@ -373,4 +373,12 @@ h3 {
     max-width: 350px;
   }
 }
+
+@media only screen and (max-height: 590px) {
+  .logo {
+    width: 8rem !important;
+    top: -2.5rem !important;
+    left: -2.5rem !important;
+  }
+}
 </style>

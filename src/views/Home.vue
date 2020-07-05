@@ -191,9 +191,11 @@ h3.about {
   align-items: center;
   flex-direction: column;
   background: #eef3f7;
+  padding: 1rem;
 }
 
 .logo3 {
+  margin: 0 auto;
   transition: all 0.65s ease;
   width: 232px;
   img {
@@ -226,7 +228,8 @@ h3.about {
   height: 250px;
   text-align: left;
   width: 700px;
-  padding-left: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   p {
     color: white;
   }
@@ -244,10 +247,16 @@ h3.about {
   }
 }
 
+.player-col,
+.mini-gallery-column {
+  display: block;
+}
+
 .swiper-container.swiper.swiper-container-initialized {
   background: black;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px),
+  only screen and (max-height: 630px) {
   .title {
     width: 100%;
     margin-right: 0 !important;
@@ -265,11 +274,6 @@ h3.about {
     margin: 0;
   }
   .about-section {
-    .abt-wrap,
-    .logo3 {
-      position: relative;
-      top: -1rem;
-    }
     .about-vid-bg {
       display: none;
     }
@@ -277,7 +281,7 @@ h3.about {
       .about-text {
         p {
           max-width: 70%;
-          margin: 0 auto !important;
+          margin: 1rem auto !important;
           text-align: justify;
         }
       }
@@ -287,6 +291,7 @@ h3.about {
     height: auto !important;
     display: flex;
     align-items: center;
+    padding: 1rem;
 
     .latest-news {
       flex-direction: column;
@@ -326,16 +331,92 @@ h3.about {
   }
 }
 
-@media only screen and (max-height: 725px) {
+@media only screen and (max-width: 725px) {
+  .extra {
+    height: 0px;
+    min-height: 0px;
+  }
+
+  .player-col,
   .mini-gallery-column {
     display: none;
   }
 }
 
-@media only screen and (max-height: 565px) {
+@media only screen and (max-width: 565px) {
   .social {
     position: relative;
     top: -6rem;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  h3.about.noselect {
+    margin-top: 1rem;
+  }
+
+  .news {
+    min-height: 100vh;
+    height: 100vh;
+    .news-content {
+      margin-top: 1rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  h1 {
+    font-size: 6rem;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .title {
+    h5,
+    a {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .title {
+    h5,
+    a {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  .title {
+    top: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 315px) {
+  .about-content {
+    p {
+      font-size: 0.65rem;
+    }
+  }
+}
+
+@media only screen and (max-height: 555px) {
+  .title {
+    h5,
+    a {
+      display: none;
+    }
   }
 }
 </style>
