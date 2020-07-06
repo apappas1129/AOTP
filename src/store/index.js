@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Player from '@/store/player'
+import Player from './modules/player.js';
 
 Vue.use(Vuex);
 
@@ -10,6 +10,5 @@ export default new Vuex.Store({
     modules: {
         Player,
     },
-    strict: debug,
-    plugins: debug ? [createLogger()] : []
+    strict: debug
 });
