@@ -62,8 +62,8 @@
 export default {
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: 'Contact Us'
-  },
+    title: "Contact Us"
+  }
 };
 </script>
 
@@ -107,6 +107,27 @@ h1 {
               .btn {
                 background: #c39d63;
                 color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .contact-us {
+    .contact-us-container {
+      .contact-us-card {
+        .card {
+          padding: 1em;
+          .contact-us-form {
+            form {
+              .contact-us-buttons {
+                div {
+                  margin: .5em 0;
+                }
               }
             }
           }

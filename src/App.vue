@@ -62,6 +62,8 @@
       </div>
     </div>
     <router-view />
+    <toast-player></toast-player>
+
     <footer id="footer" class="row page-footer">
       <div class="row footer-container col-md-12 justify-content-center">
         <div class="footer-album col-md-4">
@@ -155,8 +157,13 @@
 
 <script>
 import { SocialLinks as socialLinks } from "@/data";
+import ToastPlayer from '@/components/ToastPlayer'
+
 export default {
   name: "App",
+  components: {
+    ToastPlayer
+  },
   metaInfo: {
     title: 'AOTP Official Website',
     // all titles will be injected into this template
@@ -371,6 +378,14 @@ h3 {
 @media only screen and (max-width: 767px) {
   .footer-contact {
     max-width: 350px;
+  }
+}
+
+@media only screen and (max-height: 590px) {
+  .logo {
+    width: 8rem !important;
+    top: -2.5rem !important;
+    left: -2.5rem !important;
   }
 }
 

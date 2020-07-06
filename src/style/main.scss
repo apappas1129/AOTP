@@ -81,6 +81,7 @@ h1 {
   .nav-mobile {
     display: flex;
     position: fixed;
+    height: auto;
     right: 0;
     top: 0;
     z-index: 100;
@@ -89,6 +90,7 @@ h1 {
     transition: 0.5s all;
   }
   .nav-mobile.open {
+    height: 100%;
     width: 100%;
     right: 0;
     height: 100%;
