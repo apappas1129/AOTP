@@ -38,25 +38,25 @@
         <i class="las la-times" v-if="isOpened" v-on:click="isOpened = !isOpened"></i>
         <ul>
           <li>
-            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/">Home</router-link>
+            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/">Home</router-link>
           </li>
           <li>
-            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/about">About</router-link>
+            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/about">About</router-link>
           </li>
           <!-- <li>
             <router-link @click.native="$scrollToTop" to="/news">News</router-link>
           </li>-->
           <li>
-            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/music">Music</router-link>
+            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/music">Music</router-link>
           </li>
           <!-- <li>
             <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
           </li>-->
           <li>
-            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/media">Media</router-link>
+            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/media">Media</router-link>
           </li>
           <li>
-            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/contact">Contact</router-link>
+            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/contact">Contact</router-link>
           </li>
         </ul>
       </div>
@@ -381,6 +381,10 @@ h3 {
   i {
     margin-bottom: 8px;
   }
+}
+
+.darkMobileNav {
+  background: black !important;
 }
 
 @media only screen and (max-width: 767px) {
