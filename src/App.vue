@@ -24,7 +24,7 @@
             <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
           </li>-->
           <li>
-            <router-link to="/media">Media</router-link>
+            <router-link @click.native="$scrollToTop" to="/media">Media</router-link>
           </li>
           <li>
             <router-link @click.native="$scrollToTop" to="/contact">Contact</router-link>
@@ -32,31 +32,31 @@
         </ul>
       </div>
     </div>
-    <div class="nav-mobile" v-bind:class="{open: isOpened}">
+    <div class="nav-mobile" v-bind:class="{open: isOpened, 'darkMobileNav' : isMobileNavDark}">
       <i class="las la-bars" v-if="!isOpened" v-on:click="isOpened = !isOpened"></i>
       <div class="text-right nav-items" v-if="isOpened" style="display: inline-table;">
         <i class="las la-times" v-if="isOpened" v-on:click="isOpened = !isOpened"></i>
         <ul>
           <li>
-            <router-link @click.native="$scrollToTop" to="/">Home</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/">Home</router-link>
           </li>
           <li>
-            <router-link @click.native="$scrollToTop" to="/about">About</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/about">About</router-link>
           </li>
           <!-- <li>
             <router-link @click.native="$scrollToTop" to="/news">News</router-link>
           </li>-->
           <li>
-            <router-link @click.native="$scrollToTop" to="/music">Music</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/music">Music</router-link>
           </li>
           <!-- <li>
             <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
           </li>-->
           <li>
-            <router-link to="/media">Media</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/media">Media</router-link>
           </li>
           <li>
-            <router-link @click.native="$scrollToTop" to="/contact">Contact</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/contact">Contact</router-link>
           </li>
         </ul>
       </div>
@@ -191,7 +191,8 @@ export default {
     return {
       isOpened: false,
       isPassedSection1: false,
-      socialLinks
+      socialLinks,
+      isMobileNavDark: false
     };
   },
   mounted () {
@@ -209,6 +210,7 @@ export default {
   watch: {
     $route () {
       this.isPassedSection1 = true;
+      this.isMobileNavDark = ['About', 'Music', 'Contact'].includes(this.$route.name);
     }
   },
   computed: {

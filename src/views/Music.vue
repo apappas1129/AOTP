@@ -35,7 +35,7 @@
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(p, i) in playlist" v-bind:key="i">
           <div class="music-slide">
-            <div class="album-thumbnail">
+            <div class="album-thumbnail" @click="skipTrack(i)">
               <div class="player-cover__item" v-bind:style="{ backgroundImage: url(p.cover) }"></div>
             </div>
             <h3>{{ p.name }}</h3>
