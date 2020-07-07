@@ -3,7 +3,7 @@
     <h1>our music</h1>
     <div class="music-list-container">
       <div class="music-list" v-for="(p, i) in playlist" v-bind:key="i">
-        <div class="album-thumbnail">
+        <div class="album-thumbnail" @click="skipTrack(i)">
           <div class="player-cover__item" v-bind:style="{ backgroundImage: url(p.cover) }"></div>
         </div>
         <div class="music-story">
@@ -70,6 +70,7 @@
 
 <script>
 import { PlayList as playlist } from '@/data';
+import { mapActions } from 'vuex';
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
 
@@ -101,7 +102,8 @@ export default {
   methods: {
     url(path) {
       return `url('${path}')`;
-    }
+    },
+    ...mapActions(['skipTrack'])
   }
 };
 </script>
