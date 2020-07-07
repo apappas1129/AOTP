@@ -1,6 +1,5 @@
 <template>
   <main role="main" class="row contact-us content container">
-    <h1 class="col-md-12 text-left">contact us</h1>
     <div class="row contact-us-container justify-content-center col-md-12">
       <div class="contact-us-card col-md-10">
         <div class="card col-md-12">
@@ -62,8 +61,8 @@
 export default {
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: 'Contact Us'
-  },
+    title: "Contact Us"
+  }
 };
 </script>
 
@@ -114,5 +113,34 @@ h1 {
       }
     }
   }
+}
+
+@media only screen and (max-width: 1200px) {
+  .contact-us {
+    .contact-us-container {
+      .contact-us-card {
+        .card {
+          padding: 1em;
+          .contact-us-form {
+            form {
+              .contact-us-buttons {
+                div {
+                  margin: .5em 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 790px) {
+  .contact-us {
+    margin-top: 0 !important;
+  }
+
 }
 </style>

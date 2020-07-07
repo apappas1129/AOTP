@@ -30,7 +30,7 @@ export default {
     return {
       swiperOption: {
         autoplay: {
-          delay: 3000,
+          delay: 2400,
           disableOnInteraction: false
         },
         pagination: {

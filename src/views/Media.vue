@@ -16,20 +16,21 @@
           <iframe width="400" height="225" :src="ytList[2]"></iframe>
           <iframe width="400" height="225" :src="ytList[3]"></iframe>
         </li>
-        <li>
-          <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw">
-            <h2>
-              <i class="las la-play-circle"></i> Subscribe
-            </h2>
-          </a>
-        </li>
       </ul>
+      <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw" target="_blank">
+        <div class="yt-thumbnail"></div>
+      </a>
+      <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw" target="_blank">
+        <h2 style="color: white; margin-bottom: 1rem">
+          <i class="las la-play-circle"></i> Subscribe
+        </h2>
+      </a>
     </div>
   </div>
 </template>
 
 <script>
-import PlayBtn from '@/components/PlayBtn'
+import PlayBtn from '@/components/PlayBtn';
 
 export default {
   name: 'Media',
@@ -40,7 +41,7 @@ export default {
   components: {
     PlayBtn
   },
-  data () {
+  data() {
     return {
       ytList: [
         'https://www.youtube.com/embed/Z0lk4B3NjO0',
@@ -50,21 +51,34 @@ export default {
       ],
       showEmbeds: false,
       isOpaque: false
-    }
+    };
   },
   methods: {
-    revealEmbeds () {
+    revealEmbeds() {
       this.showEmbeds = true;
       setTimeout(() => {
         this.isOpaque = true;
       }, 1000);
     }
   }
-
-}
+};
 </script>
 
 <style lang="scss" scoped>
+.yt-thumbnail {
+  display: none;
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  left: calc(50% - 4rem);
+  bottom: calc(40% + 60px);
+  position: absolute;
+  background-image: url(../assets/mini-gallery/s1-5.jpg);
+  background-size: cover;
+  background-position-y: -20px;
+  cursor: pointer;
+}
+
 ul.iframes.no-opacity {
   opacity: 0 !important;
   li {
@@ -103,7 +117,7 @@ a:hover {
   color: #c4302b;
   text-decoration: none;
   h2 {
-    color: #c4302b;
+    color: #c4302b !important;
   }
 }
 
@@ -152,5 +166,28 @@ iframe {
   border: none;
   border-radius: 8px;
   margin: 4px;
+}
+
+@media only screen and (max-width: 820px) {
+  ul.iframes {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .that-button {
+    display: none;
+  }
+  .media-wrapper {
+    margin-top: 0 !important;
+    height: 100vh;
+  }
+
+  h2 {
+    bottom: 30%;
+  }
+  .yt-thumbnail {
+    display: block;
+  }
 }
 </style>

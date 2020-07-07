@@ -29,10 +29,7 @@ const PlayList = [
     them could affect how the rest of your day goes.
     In this scenario, the encounter turned out to be the best thing ever in
     that moment, where the stimuli that changes your aura is the vibe of the
-    person you just came in contact with.
-    The song is a reminder for us to try resonate good energy and to spend
-    more time with people who radiate positive energy - because our vibe
-    can be highly contagious, even if we don’t realize it.`,
+    person you just came in contact with.`,
 
     spotify: 'https://www.facebook.com/AOTPMUSIC/',
     appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
@@ -65,9 +62,7 @@ const PlayList = [
     Almost everyone can relate to it.
     It depicts real life stories or situations where it becomes a dead end or in a narrowing closure of dreams, promises, passion or hope.
     Away gives the listener a ray of light that, wherever you are, what situation you are in, ‘you can always come back home’.
-    Home can be a lot of things.
-    It can be your physical home, it can be family, it can be your former glory or a spur of the moment of your life.
-    When you are all tied up in a situation where you feel you’re done, felt hopeless or running out of life, always remember, You can always come back home.`,
+   `,
     spotify: 'https://www.facebook.com/AOTPMUSIC/',
     appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
   },
@@ -182,49 +177,49 @@ const SocialLinks = [
 
 const Band = [
   {
-    name: 'Samuel Akins',
+    name: 'Sam Akins',
     description: 'Lead Singer',
-    fb: 'https://www.facebook.com/samuelakinbode',
-    twt: 'https://www.facebook.com/samuelakinbode',
-    ig: 'https://www.facebook.com/samuelakinbode',
+    fb: 'https://www.facebook.com/imsamakins',
+    twt: 'https://www.instagram.com/imsamakins/',
+    ig: 'https://twitter.com/ImSamAkins',
     photo: require(PHOTO + 'sam.jpg'),
   },
   {
     name: 'Pablo Punzalan',
     description: 'Guitarist',
-    fb: 'https://www.facebook.com/samuelakinbode',
-    twt: 'https://www.facebook.com/samuelakinbode',
+    fb: 'https://www.facebook.com/young.Flaco.Pablo',
+    twt: 'https://twitter.com/darthflaco',
     ig: 'https://www.instagram.com/flaco.pablo/',
     photo: require(PHOTO + 'pab.jpg'),
   },
   {
     name: 'Paolo Victor Ramos',
     description: 'Bassist',
-    fb: 'https://www.facebook.com/samuelakinbode',
-    twt: 'https://www.facebook.com/samuelakinbode',
+    fb: 'https://www.facebook.com/paoramos15',
+    twt: 'https://twitter.com/PaoloRamosMusic',
     ig: 'https://www.instagram.com/paoloramosme/',
     photo: require(PHOTO + 'pao.jpg'),
   },
   {
     name: 'JC Macahig',
     description: 'Keyboardist',
-    fb: 'https://www.facebook.com/samuelakinbode',
-    twt: 'https://www.facebook.com/samuelakinbode',
+    fb: 'https://www.facebook.com/easylikejc',
+    twt: 'https://twitter.com/jcmacahig',
     ig: 'https://www.instagram.com/jacemacahig/',
     photo: require(PHOTO + 'jc.jpg'),
   },
   {
     name: 'Jed Aromin',
     description: 'Drummer',
-    fb: 'https://www.facebook.com/samuelakinbode',
-    twt: 'https://www.facebook.com/samuelakinbode',
+    fb: 'https://www.facebook.com/jed.aromin',
+    twt: 'https://twitter.com/Jeddy_boy',
     ig: 'https://www.instagram.com/morebarbacoa/',
     photo: require(PHOTO + 'jed.jpg'),
   },
   {
     name: 'JJ Macahig',
     description: 'Guitarist',
-    fb: 'https://www.facebook.com/samuelakinbode',
+    fb: 'https://www.facebook.com/jjmchaig',
     ig: 'https://www.instagram.com/jjmchaig/',
     photo: require(PHOTO + 'jj.jpg'),
   },

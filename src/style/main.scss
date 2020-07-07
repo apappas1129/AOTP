@@ -64,6 +64,10 @@ h1 {
 
 .nav-mobile {
   display: none;
+
+  i {
+    padding: 1rem;
+  }
 }
 
 .page-nav-margin {
@@ -71,7 +75,7 @@ h1 {
 }
 
 /* Media Queries */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 790px) {
   .page-nav-margin {
     margin-top: unset;
   }
@@ -81,7 +85,7 @@ h1 {
   .nav-mobile {
     display: flex;
     position: fixed;
-    height: 100%;
+    height: auto;
     right: 0;
     top: 0;
     z-index: 100;
@@ -90,6 +94,7 @@ h1 {
     transition: 0.5s all;
   }
   .nav-mobile.open {
+    height: 100%;
     width: 100%;
     right: 0;
     background: #000000f7;

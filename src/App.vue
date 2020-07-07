@@ -24,7 +24,7 @@
             <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
           </li>-->
           <li>
-            <router-link to="/media">Media</router-link>
+            <router-link @click.native="$scrollToTop" to="/media">Media</router-link>
           </li>
           <li>
             <router-link @click.native="$scrollToTop" to="/contact">Contact</router-link>
@@ -32,36 +32,38 @@
         </ul>
       </div>
     </div>
-    <div class="nav-mobile" v-bind:class="{open: isOpened}">
+    <div class="nav-mobile" v-bind:class="{open: isOpened, 'darkMobileNav' : isMobileNavDark}">
       <i class="las la-bars" v-if="!isOpened" v-on:click="isOpened = !isOpened"></i>
       <div class="text-right nav-items" v-if="isOpened" style="display: inline-table;">
         <i class="las la-times" v-if="isOpened" v-on:click="isOpened = !isOpened"></i>
         <ul>
           <li>
-            <router-link @click.native="$scrollToTop" to="/">Home</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/">Home</router-link>
           </li>
           <li>
-            <router-link @click.native="$scrollToTop" to="/about">About</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/about">About</router-link>
           </li>
           <!-- <li>
             <router-link @click.native="$scrollToTop" to="/news">News</router-link>
           </li>-->
           <li>
-            <router-link @click.native="$scrollToTop" to="/music">Music</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/music">Music</router-link>
           </li>
           <!-- <li>
             <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
           </li>-->
           <li>
-            <router-link to="/media">Media</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/media">Media</router-link>
           </li>
           <li>
-            <router-link @click.native="$scrollToTop" to="/contact">Contact</router-link>
+            <router-link @click.native="() => { $scrollToTop; isOpened = false; }" to="/contact">Contact</router-link>
           </li>
         </ul>
       </div>
     </div>
     <router-view />
+    <toast-player></toast-player>
+
     <footer id="footer" class="row page-footer">
       <div class="row footer-container col-md-12 justify-content-center">
         <div class="footer-album col-md-4 footer-section-header">
@@ -89,7 +91,7 @@
             </li>
           </ul>
         </div>
-        <div class="footer-socials col-md-4">
+        <div class="footer-socials col-md-4 social-footer-col">
           <div class="footer-section-header">
             <h4>More about us</h4>
           </div>
@@ -155,8 +157,13 @@
 
 <script>
 import { SocialLinks as socialLinks } from "@/data";
+import ToastPlayer from '@/components/ToastPlayer'
+
 export default {
   name: "App",
+  components: {
+    ToastPlayer
+  },
   metaInfo: {
     title: 'AOTP Official Website',
     // all titles will be injected into this template
@@ -184,7 +191,8 @@ export default {
     return {
       isOpened: false,
       isPassedSection1: false,
-      socialLinks
+      socialLinks,
+      isMobileNavDark: false
     };
   },
   mounted () {
@@ -202,6 +210,7 @@ export default {
   watch: {
     $route () {
       this.isPassedSection1 = true;
+      this.isMobileNavDark = ['About', 'Music', 'Contact'].includes(this.$route.name);
     }
   },
   computed: {
@@ -368,9 +377,23 @@ h3 {
   }
 }
 
+.social-footer-col {
+  i {
+    margin-bottom: 8px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .footer-contact {
     max-width: 350px;
+  }
+}
+
+@media only screen and (max-height: 590px) {
+  .logo {
+    width: 8rem !important;
+    top: -2.5rem !important;
+    left: -2.5rem !important;
   }
 }
 </style>
