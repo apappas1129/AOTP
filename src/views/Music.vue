@@ -3,7 +3,7 @@
     <h1>our music</h1>
     <div class="music-list-container">
       <div class="music-list" v-for="(p, i) in playlist" v-bind:key="i">
-        <div class="album-thumbnail">
+        <div class="album-thumbnail" @click="skipTrack(i)">
           <div class="player-cover__item" v-bind:style="{ backgroundImage: url(p.cover) }"></div>
         </div>
         <div class="music-story">
@@ -33,7 +33,8 @@
 </template>
 
 <script>
-import { PlayList as playlist } from '@/data'
+import { PlayList as playlist } from '@/data';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Music',
@@ -41,17 +42,18 @@ export default {
     // title will be injected into parent titleTemplate
     title: 'Our Music'
   },
-  data () {
+  data() {
     return {
       playlist
-    }
+    };
   },
   methods: {
-    url (path) {
+    url(path) {
       return `url('${path}')`;
-    }
+    },
+    ...mapActions(['skipTrack'])
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

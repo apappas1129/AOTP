@@ -5,29 +5,43 @@
       href="#"
       v-if="isMinimized"
       id="equalizer"
-      @click="isMinimized = false"
+      @click="($event) => { $event.preventDefault(); isMinimized = false; }"
     >
       <i class="las la-volume-up"></i>
     </a>
     <div v-if="!isMinimized" class="full-toast-player">
-      <a href="#" @click="play()" class="vertical-center" style="display: inline-block;">
-        <!-- <i v-if="!this.audio.paused" class="las la-play"></i> -->
-        <!-- <i v-if="this.audio.paused" class="las la-pause"></i> -->
-        <i class="las la-pause"></i>
-      </a>
-      <div class="toast-content" style="display: inline-block;">
-        <span style="font-size: 11px;">Now Playing</span>
-        <br />
-        <span>{{ currentTrack ? currentTrack.name : 'Default' }}</span>
-      </div>
-      <a
-        class="vertical-center"
-        href="#"
-        @click="isMinimized = true"
-        style="display: inline-block;"
-      >
-        <i @click="isMinimized = true" class="las la-compress-arrows-alt"></i>
-      </a>
+      <table>
+        <tr>
+          <td style="vertical-align: bottom">
+            <a
+              href="#"
+              @click="($event) => $event.preventDefault() || play()"
+              class="vertical-center"
+              style="display: inline-block;"
+            >
+              <i v-if="!isTimerPlaying" class="las la-play"></i>
+              <i v-if="isTimerPlaying" class="las la-pause"></i>
+            </a>
+          </td>
+          <td>
+            <div class="toast-content" style="display: inline-block;">
+              <span style="font-size: 11px;">Now Playing</span>
+              <br />
+              <span class="current-track">{{ currentTrack ? currentTrack.name : 'Default' }}</span>
+            </div>
+          </td>
+          <td style="vertical-align: bottom">
+            <a
+              class="vertical-center"
+              href="#"
+              @click="($event) => { $event.preventDefault(); isMinimized = true; }"
+              style="display: inline-block;"
+            >
+              <i @click="isMinimized = true" class="las la-compress-arrows-alt"></i>
+            </a>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>
@@ -37,7 +51,7 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'toast-player',
-  data () {
+  data() {
     return {
       audio: null,
       isMinimized: true
@@ -60,17 +74,22 @@ export default {
       'nTrack',
       'resetPlayer',
       'favorite',
-      'initiate',
-    ]),
+      'initiate'
+    ])
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
+.current-track {
+  position: relative;
+  top: -2px;
+}
+
 .toasted-bread {
   border-radius: 0;
-  background-color: black;
-  color: white;
+  background-color: transparent;
+  color: #666666;
   width: 240px;
   height: 50px;
   z-index: 180;
@@ -79,15 +98,19 @@ export default {
   left: 1rem;
   text-align: center;
   justify-content: center;
-  transition: all 0.5 ease-in;
+  transition: all 0.12s ease-in;
   a {
-    color: white;
-    i {
-      color: white;
-    }
+    color: #666666;
   }
   .full-toast-player {
+    overflow: hidden;
+    padding-left: 8px;
     width: 100%;
+    background-color: black;
+    color: white;
+    a {
+      color: white;
+    }
   }
 }
 
