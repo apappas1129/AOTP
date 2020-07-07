@@ -29,10 +29,7 @@ const PlayList = [
     them could affect how the rest of your day goes.
     In this scenario, the encounter turned out to be the best thing ever in
     that moment, where the stimuli that changes your aura is the vibe of the
-    person you just came in contact with.
-    The song is a reminder for us to try resonate good energy and to spend
-    more time with people who radiate positive energy - because our vibe
-    can be highly contagious, even if we don’t realize it.`,
+    person you just came in contact with.`,
 
     spotify: 'https://www.facebook.com/AOTPMUSIC/',
     appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
@@ -65,9 +62,7 @@ const PlayList = [
     Almost everyone can relate to it.
     It depicts real life stories or situations where it becomes a dead end or in a narrowing closure of dreams, promises, passion or hope.
     Away gives the listener a ray of light that, wherever you are, what situation you are in, ‘you can always come back home’.
-    Home can be a lot of things.
-    It can be your physical home, it can be family, it can be your former glory or a spur of the moment of your life.
-    When you are all tied up in a situation where you feel you’re done, felt hopeless or running out of life, always remember, You can always come back home.`,
+   `,
     spotify: 'https://www.facebook.com/AOTPMUSIC/',
     appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
   },

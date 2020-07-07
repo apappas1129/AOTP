@@ -91,7 +91,7 @@
             </li>
           </ul>
         </div>
-        <div class="footer-socials col-md-4">
+        <div class="footer-socials col-md-4 social-footer-col">
           <div class="footer-section-header">
             <h4>More about us</h4>
           </div>
@@ -372,6 +372,12 @@ h3 {
         }
       }
     }
+  }
+}
+
+.social-footer-col {
+  i {
+    margin-bottom: 8px;
   }
 }
 
