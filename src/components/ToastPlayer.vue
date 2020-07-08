@@ -1,17 +1,17 @@
 <template>
   <div class="toasted-bread" v-bind:class="{ 'minimized-toast' : isMinimized }">
     <a
-      style="top: 25%; position: relative;"
       href="#"
       v-if="isMinimized"
       id="equalizer"
       @click="($event) => { $event.preventDefault(); isMinimized = false; }"
     >
-      <i class="las la-volume-up"></i>
+      <i class="muted las la-volume-mute" v-bind:class="{ transparent: isTimerPlaying }"></i>
+      <music-bars id="bars" v-bind:class="{ transparent: !isTimerPlaying }"></music-bars>
     </a>
     <div v-if="!isMinimized" class="full-toast-player">
       <table>
-        <tr>
+        <tr style="height: 4.3rem;">
           <td style="vertical-align: bottom">
             <a
               href="#"
@@ -25,7 +25,7 @@
           </td>
           <td>
             <div class="toast-content" style="display: inline-block;">
-              <span style="font-size: 11px;">Now Playing</span>
+              <span>Now Playing</span>
               <br />
               <span class="current-track">{{ currentTrack ? currentTrack.name : 'Default' }}</span>
             </div>
@@ -48,9 +48,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import MusicBars from '@/components/MusicBars.vue';
 
 export default {
   name: 'toast-player',
+  components: {
+    MusicBars
+  },
   data() {
     return {
       audio: null,
@@ -86,12 +90,20 @@ export default {
   top: -2px;
 }
 
+#bars {
+  opacity: 1;
+  transition: all 0.5s ease-in;
+}
+
+.transparent {
+  opacity: 0 !important;
+}
+
 .toasted-bread {
   border-radius: 0;
   background-color: transparent;
   color: #666666;
-  width: 240px;
-  height: 50px;
+  width: 270px;
   z-index: 180;
   bottom: 1rem;
   position: fixed;
@@ -103,21 +115,47 @@ export default {
     color: #666666;
   }
   .full-toast-player {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     overflow: hidden;
     padding-left: 8px;
     width: 100%;
     background-color: black;
     color: white;
     a {
+      font-size: 2rem;
+
       color: white;
     }
+  }
+
+  .muted {
+    color: white;
+    font-size: 2rem;
   }
 }
 
 .minimized-toast {
-  width: 50px;
-
+  width: 64.4px;
   border-radius: 50%;
+  transition: all 0.3s ease-in;
+  background-color: transparent;
+}
+
+.minimized-toast:hover {
+  background-color: black;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.now.playing {
+  position: relative;
+  bottom: 36px;
+  left: 10px;
+}
+
+a#equalizer {
+  top: 16px;
+  position: relative;
+  right: -2px;
 }
 
 .equalizer {
