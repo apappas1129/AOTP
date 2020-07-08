@@ -54,13 +54,13 @@ div[class*=' slide-'] {
   background-position: center;
 }
 .slide-1 {
-  background-image: url('../assets/slides/slide1.jpg');
+  background-image: url('../assets/slides/slide1.png');
 }
 .slide-2 {
-  background-image: url('../assets/slides/slide2.jpg');
+  background-image: url('../assets/slides/slide2.png');
 }
 .slide-3 {
-  background-image: url('../assets/slides/slide3.jpg');
+  background-image: url('../assets/slides/slide3.png');
 }
 .slide-4 {
   background-image: url('../assets/slides/slide4.png');
