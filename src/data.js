@@ -12,6 +12,7 @@ const PlayList = [
     url: 'https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw',
     favorited: false,
     story: `Coming soon.`,
+    spotify: 'https://smarturl.it/someonelse?fbclid=IwAR2pLA44gz_CIXrDcUnJTbe5IrNolFQEvQcnRk2NtUX4OZrDA86x1vYReDs'
   },
   {
     name: 'Contagious',
@@ -31,8 +32,8 @@ const PlayList = [
     that moment, where the stimuli that changes your aura is the vibe of the
     person you just came in contact with.`,
 
-    spotify: 'https://www.facebook.com/AOTPMUSIC/',
-    appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
+    spotify: 'https://open.spotify.com/album/6VwP339X2mfJQV1YRvUN6b?si=pCBOgQjUTjizBOZAL3I9uw',
+    appleMusic: 'https://music.apple.com/ph/album/contagious-single/1501509424',
   },
   {
     name: 'Backwards',
@@ -47,8 +48,8 @@ const PlayList = [
     Starting all the way from the end to how it all started.
     The song aims to tell a story of how it feels when relationships fall apart through a unique virtual tour of a love story told in reverse order - From Lovers, Friends, to Strangers.
     `,
-    spotify: 'https://www.facebook.com/AOTPMUSIC/',
-    appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
+    spotify: 'https://open.spotify.com/track/5xQ4EIQAEXpcETtonans0B?si=AwqWD-ioTSKkFgSKLuSICg',
+    appleMusic: 'https://music.apple.com/ph/album/backwards-single/1504070379',
   },
   {
     name: 'Away',
@@ -63,8 +64,8 @@ const PlayList = [
     It depicts real life stories or situations where it becomes a dead end or in a narrowing closure of dreams, promises, passion or hope.
     Away gives the listener a ray of light that, wherever you are, what situation you are in, ‘you can always come back home’.
    `,
-    spotify: 'https://www.facebook.com/AOTPMUSIC/',
-    appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
+    spotify: 'https://open.spotify.com/track/3Xadah5hCQafBUWdebXjds?si=_ON1GuDDT-2HvNzoPgMagw',
+    appleMusic: 'https://music.apple.com/ph/album/away/1504245304?i=1504245305',
   },
   {
     name: 'Fear',
@@ -79,8 +80,8 @@ const PlayList = [
     This song encourages us that every “try” into every “unknown” is always worth the risk.
     It's far more better than living a life with what ifs.
     Wherever you are in your life, don’t let fear control you.`,
-    spotify: 'https://www.facebook.com/AOTPMUSIC/',
-    appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
+    spotify: 'https://open.spotify.com/track/4KoIyx7b5apjwHw9U232HX?si=0vKaW_YeSMiubYiePhRraA',
+    appleMusic: 'https://music.apple.com/ph/album/fear/1504245304?i=1504245578',
   },
   {
     name: 'No Pressure',
@@ -97,8 +98,8 @@ const PlayList = [
     And a stage where there are no rooms for mistakes.
     You can be at both stages, you will swing and miss but take it on your own pace and;
     don’t let anyone pressure you.`,
-    spotify: 'https://www.facebook.com/AOTPMUSIC/',
-    appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
+    spotify: 'https://open.spotify.com/track/2uHHzkEwPJ5UGUhC4JZu7X?si=aHy_xirmQnqW2uMv7ToYnQ',
+    appleMusic: 'https://music.apple.com/ph/album/no-pressure/1504245304?i=1504245580',
   },
   {
     name: 'Over You',
@@ -114,8 +115,8 @@ const PlayList = [
     But what is holding you is the love and affection you felt in your relationship.
     But it ain't enough to hold in the relationship.
     Now it's done and I'm over you.`,
-    spotify: 'https://www.facebook.com/AOTPMUSIC/',
-    appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
+    spotify: 'https://open.spotify.com/track/2ooT45VnNVF9Hkzl1uy1KW?si=mRXC7fd7QpC3YaRUSy8P3A',
+    appleMusic: 'https://music.apple.com/ph/album/over-you/1504245304?i=1504245582',
   },
   {
     name: 'Stand',
@@ -133,8 +134,8 @@ const PlayList = [
     Stand also encourages us to rise above the hate, to stand for others who cannot stand for their own.`,
     story_quote: `“Earth will pass away\n\r
     I know love will still remain.”`,
-    spotify: 'https://www.facebook.com/AOTPMUSIC/',
-    appleMusic: 'https://www.facebook.com/AOTPMUSIC/',
+    spotify: 'https://open.spotify.com/track/0gP5UTiEuXZtUfxYnyPEtI?si=vK5cg1dKT12m3_At2Ar2Uw',
+    appleMusic: 'https://music.apple.com/ph/album/stand/1504245304?i=1504245583',
   },
 ];
 

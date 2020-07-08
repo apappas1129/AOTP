@@ -10,7 +10,7 @@
       </div>
       <div class="title">
         <h1 class="noselect" style="margin-bottom: 0; color: white;">all over the place</h1>
-        <h5 style=" color: white;">The uncertainty that gives us something to look forward</h5>
+        <h5 style=" color: white;">Uncertainty gives us something to look forward to</h5>
         <fancy-btn style="margin-top: 2rem; pointer-events: all;" />
       </div>
     </section>

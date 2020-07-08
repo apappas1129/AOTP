@@ -73,19 +73,19 @@
           <ul>
             <li>
               <a
-                href="https://open.spotify.com/album/6VwP339X2mfJQV1YRvUN6b"
+                href="https://smarturl.it/aotpcontagious"
                 target="_blank"
               >Contagious</a>
             </li>
             <li>
               <a
-                href="https://open.spotify.com/album/0cNafd0Wkor62EFGsj0488"
+                href="https://smarturl.it/aotpbackwards"
                 target="_blank"
               >Backwards</a>
             </li>
             <li>
               <a
-                href="https://open.spotify.com/album/2LMXLpe4KvriuRtuBcnZms"
+                href="https://smarturl.it/aotpEP"
                 target="_blank"
               >All Over The Place</a>
             </li>
