@@ -31,6 +31,7 @@
 
 <script>
 import PlayBtn from '@/components/PlayBtn';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Media',
@@ -53,12 +54,26 @@ export default {
       isOpaque: false
     };
   },
+  computed: {
+    ...mapGetters({
+      isTimerPlaying: 'getIsTimerPlaying',
+    })
+  },
   methods: {
     revealEmbeds() {
+      this.stopPlayingMusic();
       this.showEmbeds = true;
       setTimeout(() => {
         this.isOpaque = true;
       }, 1000);
+    },
+    ...mapActions([
+      'play',
+    ]),
+    stopPlayingMusic() {
+      if(this.isTimerPlaying) {
+        this.play();
+      }
     }
   }
 };
