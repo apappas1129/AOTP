@@ -154,8 +154,7 @@ const SocialLinks = [
   },
   {
     icon: 'lab la-itunes-note',
-    link:
-      'hhttps://music.apple.com/us/album/1454290175?ign-mpt=uo%3D4&app=music&at=1l3vpUI&ct=LFV_17e6d3204d852bcb961f4e0b06d311b8&lId=2302159&cId=none&sr=2&src=Linkfire&itscg=30440&itsct=catchall_p2&ls=1&fbclid=IwAR0V_0THRighVJqcaTErj-RUEteV8DdqhimF-AVWg0MC_J1zHrIygW3iCHg',
+    link: 'https://music.apple.com/ph/album/all-over-the-place-ep/1504245304?app=music',
   },
   {
     icon: 'lab la-youtube',
@@ -181,8 +180,8 @@ const Band = [
     name: 'Sam Akins',
     description: 'Lead Singer',
     fb: 'https://www.facebook.com/imsamakins',
-    twt: 'https://www.instagram.com/imsamakins/',
-    ig: 'https://twitter.com/ImSamAkins',
+    twt: 'https://twitter.com/ImSamAkins',
+    ig: 'https://www.instagram.com/imsamakins/',
     photo: require(PHOTO + 'sam.jpg'),
   },
   {
