@@ -69,20 +69,20 @@
 </template>
 
 <script>
-import { PlayList as playlist } from '@/data';
-import { mapActions } from 'vuex';
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-import 'swiper/css/swiper.css';
+import { PlayList as playlist } from "@/data";
+import { mapActions } from "vuex";
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
 
 export default {
-  name: 'Music',
+  name: "Music",
   components: {
     Swiper,
     SwiperSlide
   },
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: 'Our Music'
+    title: "Our Music"
   },
   data() {
     return {
@@ -93,7 +93,7 @@ export default {
           disableOnInteraction: true
         },
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination",
           clickable: true
         }
       }
@@ -103,7 +103,7 @@ export default {
     url(path) {
       return `url('${path}')`;
     },
-    ...mapActions(['skipTrack'])
+    ...mapActions(["skipTrack"])
   }
 };
 </script>
@@ -134,9 +134,16 @@ export default {
     width: 100%;
 
     .music-tray2 {
+      display: flex;
+      flex-direction: column;
       margin-bottom: 1rem;
-      button {
-        margin-bottom: 1rem;
+      a {
+        display: flex;
+        button {
+          justify-content: center;
+          flex-grow: 1;
+          margin: .5rem 0;
+        }
       }
     }
 
@@ -152,7 +159,7 @@ export default {
       }
 
       p {
-        text-align: left;
+        text-align: justify;
         text-indent: 2em;
         margin-bottom: 0;
       }
@@ -166,8 +173,8 @@ export default {
     .swiper {
       width: 100% !important;
     }
-    div[class^='slide-'],
-    div[class*=' slide-'] {
+    div[class^="slide-"],
+    div[class*=" slide-"] {
       width: 100%;
       height: 100%;
     }
@@ -222,7 +229,7 @@ export default {
       box-shadow: 0 0 0 1px rgba(76, 70, 124, 0.5);
     }
     .player-cover__item:hover:before {
-      content: '';
+      content: "";
       background: inherit;
       width: 100%;
       height: 100%;
@@ -237,7 +244,7 @@ export default {
       border-radius: 8px;
     }
     .player-cover__item:hover:after {
-      content: '';
+      content: "";
       background: inherit;
       width: 100%;
       height: 100%;
@@ -258,7 +265,7 @@ export default {
   h2,
   h3 {
     font-weight: bolder;
-    font-family: 'Questrial', sans-serif;
+    font-family: "Questrial", sans-serif;
     font-style: normal;
     letter-spacing: 4px;
     color: #333;
@@ -365,7 +372,7 @@ export default {
   }
 }
 
-@media only screen and (min-height: 770px) and (min-width: 610px)  {
+@media only screen and (min-height: 770px) and (min-width: 610px) {
   .music-page {
     p {
       margin: 0 4.5rem;

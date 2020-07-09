@@ -383,13 +383,16 @@ h3 {
   }
 }
 
-.darkMobileNav {
-  background: black !important;
-}
+// .darkMobileNav {
+//   background: black !important;
+// }
 
 @media only screen and (max-width: 767px) {
   .footer-contact {
     max-width: 350px;
+  }
+  .page-footer {
+    padding: 0;
   }
 }
 

@@ -1,5 +1,6 @@
 <template>
   <main role="main" class="row contact-us content container">
+    <h1 class="col-md-12 text-left">contact us</h1>
     <div class="row contact-us-container justify-content-center col-md-12">
       <div class="contact-us-card col-md-10">
         <div class="card col-md-12">
@@ -134,13 +135,5 @@ h1 {
       }
     }
   }
-}
-
-
-@media only screen and (max-width: 790px) {
-  .contact-us {
-    margin-top: 0 !important;
-  }
-
 }
 </style>

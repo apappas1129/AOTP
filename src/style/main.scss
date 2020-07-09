@@ -92,11 +92,19 @@ h1 {
     font-size: 2em;
     color: #fff;
     transition: 0.5s all;
+    i {
+      padding: 10px;
+      &:before {
+        background: #000;
+        padding: 5px;
+      }
+    }
   }
   .nav-mobile.open {
     height: 100%;
     width: 100%;
     right: 0;
+    top: 0;
     background: #000000f7;
     .nav-items {
       width: 100%;
