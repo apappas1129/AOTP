@@ -11,8 +11,18 @@ const PlayList = [
     source: require(MP3 + 'someone-else.mp3'),
     url: 'https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw',
     favorited: false,
-    story: `Coming soon.`,
-    spotify: 'https://smarturl.it/someonelse?fbclid=IwAR2pLA44gz_CIXrDcUnJTbe5IrNolFQEvQcnRk2NtUX4OZrDA86x1vYReDs'
+    story: `Their brand new single is a detour from the
+    groovy Contagious tune. It talks about loving a
+    person whose heart belongs to another, and
+    knowing you can't change how either of you feel.
+
+    Something between rejection and unrequited love, you’ll find your heart
+    smitten at the most unexpected time. And hope is abysmal, knowing that telling how
+    you feel may only ruin what’s left of the friendship that you both
+    share. Love may sometimes mean giving her happiness where it doesn't include you.
+    `,
+    spotify: 'https://open.spotify.com/album/4qLF4Xyq19LtUt42Qv6BuC?fbclid=IwAR3VfNpyy_ML1vLIu6Py-lDIE8oAOtNIN9gRAo-9rqpP6GSGp-WF778j0vU',
+    appleMusic: 'https://music.apple.com/ph/album/someone-else-single/1519409487?app=music'
   },
   {
     name: 'Contagious',
@@ -177,10 +187,10 @@ const SocialLinks = [
     icon: 'lab la-facebook',
     link: 'https://www.facebook.com/AOTPMUSIC/',
   },
-  // {
-  //   icon: 'lab la-linkedin-in',
-  //   link: 'https://open.spotify.com/artist/7buRLbM7otQjCWKwt7eDNZ'
-  // },
+  {
+    icon: 'lab la-twitter',
+    link: 'https://twitter.com/AOTPLACE'
+  },
 ];
 
 const Band = [
@@ -247,16 +257,15 @@ const Events = [
     date: new Date('2019-11-29'),
     backgroundSize: 'contain',
     backgroundColor: '#5C5C44'
-
   },
   {
     poster: require('./assets/events/19-8-2019.png'),
     date: new Date('2019-08-19')
   },
-  {
-    poster: require('./assets/events/18-8-2019(2).png'),
-    date: new Date('2019-08-18')
-  },
+  // {
+  //   poster: require('./assets/events/18-8-2019(2).png'),
+  //   date: new Date('2019-08-18')
+  // },
   {
     poster: require('./assets/events/18-8-2019.png'),
     date: new Date('2019-08-18'),

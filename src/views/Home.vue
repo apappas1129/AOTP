@@ -43,7 +43,7 @@
       </div>
     </section>
     <section class="events-section">
-      <h3>join our events</h3>
+      <h3>Live</h3>
       <div class="event-posters">
         <div
           v-for="event in events"
@@ -72,7 +72,7 @@
             <br />
             <i>"You may now cry.", says JC Macahig, the man behind the keyboards.</i>
             <br>
-            Listen to it now on <a style="color:#1ED760" href="https://smarturl.it/someonelse?fbclid=IwAR2pLA44gz_CIXrDcUnJTbe5IrNolFQEvQcnRk2NtUX4OZrDA86x1vYReDs" target="_blank"> Spotify</a>!
+            Listen to it now on <a style="color:#1ED760" href="https://open.spotify.com/album/4qLF4Xyq19LtUt42Qv6BuC?fbclid=IwAR3VfNpyy_ML1vLIu6Py-lDIE8oAOtNIN9gRAo-9rqpP6GSGp-WF778j0vU" target="_blank"> Spotify</a>!
           </p>
           <p style=" color: white;">{{ latestNews.date }}</p>
         </div>
@@ -393,6 +393,7 @@ h3.about {
     margin: 0;
   }
   .about-section {
+    height: 80vh;
     .about-vid-bg {
       display: none;
     }
