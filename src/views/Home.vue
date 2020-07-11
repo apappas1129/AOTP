@@ -67,7 +67,13 @@
         <div class="news-content">
           <p class="sub-text" style=" color: white;">LATEST NEWS</p>
           <h4 style=" color: white;">{{ latestNews.title }}</h4>
-          <p style=" color: white;">{{ latestNews.body }}</p>
+          <p style=" color: white;">
+            {{ latestNews.body }}
+            <br />
+            <i>"You may now cry.", says JC Macahig, the man behind the keyboards.</i>
+            <br>
+            Listen to it now on <a style="color:#1ED760" href="https://smarturl.it/someonelse?fbclid=IwAR2pLA44gz_CIXrDcUnJTbe5IrNolFQEvQcnRk2NtUX4OZrDA86x1vYReDs" target="_blank"> Spotify</a>!
+          </p>
           <p style=" color: white;">{{ latestNews.date }}</p>
         </div>
       </div>
