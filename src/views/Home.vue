@@ -36,13 +36,28 @@
 
           <div class="about-text">
             <p
-              style="margin: 1rem 8rem;"
-            >A modern contemporary band from Dumaguete city. The 6 piece band comprises Sam Akins(Vocals), Pablo Punzalan(Guitar), Paolo Victor Ramos(Bass), JC Macahig(Keyboard), Jed Aromin(Drums) and JJ Macahig(Guitar). The band was put together for a battle of the bands competition held in August 2018 at Silliman University. They gained recognition after winning the contest and then got to open up for Rock Band IV Of Spades on their visit to Dumaguete weeks after. They also got to play alongside Ben&Ben for the first ever Sillimusika event in 2019, Parokya Ni Edgar at the annual Buglasan festival in Dumaguete city and Silent Sanctuary during Dumaguete's leg of Coke Studio.</p>
+              style="margin: 1rem 7.5rem;"
+            >All Over The Place is a modern contemporary band that creates music in pursuit of navigating through and accessing the secret places of an individual's soul. Writing songs, beats and rhythyms that propel every person's inward journey and drive us to move forward - accepting and dancing along with the reality of life, love and everything else.</p>
           </div>
         </div>
       </div>
     </section>
-    <section class="news" style="height: 50vh">
+    <section class="events-section">
+      <h3>join our events</h3>
+      <div class="event-posters">
+        <div
+          v-for="event in events"
+          v-bind:key="event.poster"
+          v-bind:style="{
+          backgroundImage: url(event.poster),
+          backgroundSize: event.backgroundSize,
+          backgroundColor: event.backgroundColor
+          }"
+          class="poster"
+        ></div>
+      </div>
+    </section>
+    <section class="news" style="height: 46vh; min-height: 330px">
       <div class="latest-news">
         <div
           v-bind:style="{ backgroundImage: latestNews.thumbnailCSS }"
@@ -52,7 +67,13 @@
         <div class="news-content">
           <p class="sub-text" style=" color: white;">LATEST NEWS</p>
           <h4 style=" color: white;">{{ latestNews.title }}</h4>
-          <p style=" color: white;">{{ latestNews.body }}</p>
+          <p style=" color: white;">
+            {{ latestNews.body }}
+            <br />
+            <i>"You may now cry.", says JC Macahig, the man behind the keyboards.</i>
+            <br>
+            Listen to it now on <a style="color:#1ED760" href="https://smarturl.it/someonelse?fbclid=IwAR2pLA44gz_CIXrDcUnJTbe5IrNolFQEvQcnRk2NtUX4OZrDA86x1vYReDs" target="_blank"> Spotify</a>!
+          </p>
           <p style=" color: white;">{{ latestNews.date }}</p>
         </div>
       </div>
@@ -74,16 +95,20 @@
 </template>
 
 <script>
-import { LatestNews as latestNews, SocialLinks as socialLinks } from "@/data";
-import HomeSlider from "@/components/HomeSlider.vue";
-import FancyBtn from "@/components/FancyBtn.vue";
-import NeomorphicPlayer from "@/components/NeomorphicPlayer.vue";
-import MiniGallery from "@/components/MiniGallery.vue";
-import Parallax from "vue-parallaxy";
-import Tinybox from "vue-tinybox";
+import {
+  LatestNews as latestNews,
+  SocialLinks as socialLinks,
+  Events as events
+} from '@/data';
+import HomeSlider from '@/components/HomeSlider.vue';
+import FancyBtn from '@/components/FancyBtn.vue';
+import NeomorphicPlayer from '@/components/NeomorphicPlayer.vue';
+import MiniGallery from '@/components/MiniGallery.vue';
+import Parallax from 'vue-parallaxy';
+import Tinybox from 'vue-tinybox';
 
 export default {
-  name: "Home",
+  name: 'Home',
   metaInfo: {
     title: 'Home'
   },
@@ -95,18 +120,109 @@ export default {
     MiniGallery,
     Tinybox
   },
-  data () {
+  data() {
     return {
       tinyBoxNews: [{ src: latestNews.thumbnail, caption: latestNews.title }],
       tinyBoxNewsIndex: null,
       socialLinks,
-      latestNews
+      latestNews,
+      events
     };
+  },
+  methods: {
+    url(path) {
+      return "url('" + path + "')";
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.events-section {
+  height: unset;
+  max-height: unset;
+  background: black;
+  h3 {
+    padding-top: 1rem;
+    color: white;
+  }
+}
+
+.event-posters {
+  padding: 1rem 1rem 0 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: center;
+  background: black;
+  .poster {
+    margin: 5px 5px 1rem 5px;
+    /**40x27 ratio */
+    min-height: 564px;
+    min-width: 372.7px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: center;
+  }
+
+  @media only screen and (max-width: 1148px) {
+    .poster {
+      /**40x27 ratio */
+      min-width: calc((50vh - 40px) * 0.675);
+      min-height: calc(50vh - 40px);
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .event-posters {
+    justify-content: space-evenly;
+
+    .poster {
+      margin: 0 0 1rem 0;
+      min-width: calc((60vh) * 0.675);
+      min-height: calc(60vh);
+    }
+  }
+}
+
+@media only screen and (max-width: 702px) {
+  .event-posters {
+    .poster {
+      min-width: 270px;
+      min-height: 400px;
+    }
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .event-posters {
+    .poster {
+      min-width: calc((35vh) * 0.675);
+      min-height: calc(35vh);
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .event-posters {
+    .poster {
+      min-width: calc((28vh) * 0.675);
+      min-height: calc(28vh);
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .event-posters {
+    .poster {
+      min-width: calc((33vh) * 0.675);
+      min-height: calc(33vh);
+    }
+  }
+}
+
 section {
   height: 100vh;
   min-height: 570px;
