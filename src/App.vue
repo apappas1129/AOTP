@@ -272,7 +272,7 @@ h3 {
 
   a {
     color: white;
-    transition: all 0.65s ease;
+    // transition: all 0.65s ease; /** temporarily removed since the previous nav is not transitioning back */
     margin: 0 10px;
     text-transform: uppercase;
     font-size: 18px;
@@ -316,7 +316,7 @@ h3 {
 
 .router-link-exact-active {
   padding-bottom: 5px;
-  border-bottom: 3px solid #fff;
+  // border-bottom: 3px solid #fff; /**temporarily removed because it's shaking on transition */
 }
 
 .page-footer {

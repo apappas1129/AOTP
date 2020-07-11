@@ -139,10 +139,18 @@ const PlayList = [
   },
 ];
 
+// const LatestNews = {
+//   title: 'AOTP bags record deal with Major Label, Warner Music Philippines.',
+//   body: `From winning a battle of the bands to releasing their first EP and opening up for top artists in the music scene, All Over The Place has come a long way. Just over a year ago the band was formed and now they're set to compete in the big league and finally have their voice heard and Warner Music PH is here to back them up.`,
+//   date: 'November, 2019',
+//   thumbnail: require('./assets/latest_news.jpg'),
+//   thumbnailCSS: "url('" + require('./assets/latest_news.jpg') + "')",
+// };
+
 const LatestNews = {
-  title: 'AOTP bags record deal with Major Label, Warner Music Philippines.',
-  body: `From winning a battle of the bands to releasing their first EP and opening up for top artists in the music scene, All Over The Place has come a long way. Just over a year ago the band was formed and now they're set to compete in the big league and finally have their voice heard and Warner Music PH is here to back them up.`,
-  date: 'November, 2020',
+  title: 'AOTP new song, "Someone Else", is now released!',
+  body: `All Over The Place's first melodramatic piece for the broken hearted has been released.`,
+  date: '10th of July, 2020',
   thumbnail: require('./assets/latest_news.jpg'),
   thumbnailCSS: "url('" + require('./assets/latest_news.jpg') + "')",
 };
@@ -225,4 +233,40 @@ const Band = [
   },
 ];
 
-export { PlayList, LatestNews, SocialLinks, Band };
+const Events = [
+  {
+    poster: require('./assets/events/19-2-2020.jpg'),
+    date: new Date('2020-02-19')
+  },
+  {
+    poster: require('./assets/events/8-2-2020.jpg'),
+    date: new Date('2020-02-08')
+  },
+  {
+    poster: require('./assets/events/29-11-2019.png'),
+    date: new Date('2019-11-29'),
+    backgroundSize: 'contain',
+    backgroundColor: '#5C5C44'
+
+  },
+  {
+    poster: require('./assets/events/19-8-2019.png'),
+    date: new Date('2019-08-19')
+  },
+  {
+    poster: require('./assets/events/18-8-2019(2).png'),
+    date: new Date('2019-08-18')
+  },
+  {
+    poster: require('./assets/events/18-8-2019.png'),
+    date: new Date('2019-08-18'),
+    backgroundSize: 'contain',
+    backgroundColor: 'rgb(6, 10, 58)'
+  },
+  {
+    poster: require('./assets/events/16-8-2019.png'),
+    date: new Date('2019-08-16')
+  }
+];
+
+export { PlayList, LatestNews, SocialLinks, Band, Events };
