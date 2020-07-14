@@ -6,7 +6,20 @@
       </video>
     </div>
     <div class="media-wrapper">
-      <play-btn v-if="!showEmbeds" @click.native="revealEmbeds()" class="that-button"></play-btn>
+      <div class="video-container">
+        <iframe
+          width="640"
+          height="390"
+          src="https://www.youtube.com/embed/Z0lk4B3NjO0"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="video-title">
+        <p>All Over The Place - Contagious</p>
+      </div>
+      <!-- <play-btn v-if="!showEmbeds" @click.native="revealEmbeds()" class="that-button"></play-btn>
       <ul v-if="showEmbeds" class="iframes" v-bind:class="{ 'no-opacity': !isOpaque }">
         <li>
           <iframe width="400" height="225" :src="ytList[0]"></iframe>
@@ -24,31 +37,27 @@
         <h2 style="color: white; margin-bottom: 1rem">
           <i class="las la-play-circle"></i> Subscribe
         </h2>
-      </a>
+      </a>-->
     </div>
   </div>
 </template>
 
 <script>
-import PlayBtn from '@/components/PlayBtn';
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: 'Media',
+  name: "Media",
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: 'Media'
-  },
-  components: {
-    PlayBtn
+    title: "Media"
   },
   data() {
     return {
       ytList: [
-        'https://www.youtube.com/embed/Z0lk4B3NjO0',
-        'https://www.youtube.com/embed/0Szuyb3KE2c',
-        'https://www.youtube.com/embed/x9v_vA6HKeE',
-        'https://www.youtube.com/embed/LgzqL76OmOE'
+        "https://www.youtube.com/embed/Z0lk4B3NjO0",
+        "https://www.youtube.com/embed/0Szuyb3KE2c",
+        "https://www.youtube.com/embed/x9v_vA6HKeE",
+        "https://www.youtube.com/embed/LgzqL76OmOE"
       ],
       showEmbeds: false,
       isOpaque: false
@@ -56,7 +65,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isTimerPlaying: 'getIsTimerPlaying',
+      isTimerPlaying: "getIsTimerPlaying"
     })
   },
   methods: {
@@ -67,11 +76,9 @@ export default {
         this.isOpaque = true;
       }, 1000);
     },
-    ...mapActions([
-      'play',
-    ]),
+    ...mapActions(["play"]),
     stopPlayingMusic() {
-      if(this.isTimerPlaying) {
+      if (this.isTimerPlaying) {
         this.play();
       }
     }
@@ -117,7 +124,7 @@ h2 {
   right: 0;
   left: 0;
   bottom: 0;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
   font-style: normal;
   font-weight: 200;
   font-size: 3.2rem;
@@ -203,6 +210,35 @@ iframe {
   }
   .yt-thumbnail {
     display: block;
+  }
+}
+
+.media-container {
+  height: auto;
+  .media-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 25px;
+    .video-container {
+      display: flex;
+      flex-basis: 80%;
+      margin-top: 10%;
+      iframe {
+        // position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+      }
+    }
+    .video-title {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: left;
+      color: #fff;
+    }
   }
 }
 </style>
