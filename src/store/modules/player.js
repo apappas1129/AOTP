@@ -92,7 +92,6 @@ const actions = {
     dispatch("resetPlayer");
   },
   skipTrack({ commit, state, dispatch }, index) {
-    console.log("skipping to", index);
     if (index >= state.tracks.length) return;
 
     if (state.audio === null) {

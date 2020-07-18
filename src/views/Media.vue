@@ -128,12 +128,11 @@ export default {
     view(vid) {
       this.isPlayingVid = false;
       this.currentYt = vid;
-      console.log(this.currentYt);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     playVideo() {
       this.stopPlayingMusic();
       this.isPlayingVid = true;
-      console.log('play now', this.isTimerPlaying);
     },
     ...mapActions(['play']),
     stopPlayingMusic() {

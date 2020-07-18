@@ -80,7 +80,6 @@ export default {
   computed: {
     mailToUri() {
       let link = 'mailto:aotpmusic@gmail.com';
-      console.log(this.message, this.fullName, 'asdasd')
       if (this.message || this.fullName) {
         link = link + '?body=';
         if (this.message) {

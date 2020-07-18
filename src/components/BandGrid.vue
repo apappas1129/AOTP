@@ -49,9 +49,6 @@ export default {
     };
   },
   methods: {
-    onHover(i) {
-      console.log('hv', i, this.hovered);
-    }
   }
 };
 </script>
