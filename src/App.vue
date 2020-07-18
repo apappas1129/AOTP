@@ -210,7 +210,6 @@ export default {
   },
   computed: {
     shrinkNav() {
-      console.log(this.$route.name);
       return this.isPassedSection1 || this.$route.name != 'Home';
     }
   },
