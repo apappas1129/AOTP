@@ -96,17 +96,23 @@ export default {
         {
           thumbnail: require('../assets/album-covers/aotp.png'),
           link: 'https://www.youtube.com/embed/iSsVGuzQRHo',
-          title: 'Away'
+          title: 'Away',
+          lg_backgroundPosition: 'center',
+          lg_backgroundSize: 'contain'
         },
         {
           thumbnail: require('../assets/album-covers/aotp.png'),
           link: 'https://www.youtube.com/embed/JA7HRPeezfo',
-          title: 'Fear'
+          title: 'Fear',
+          lg_backgroundPosition: 'center',
+          lg_backgroundSize: 'contain'
         },
         {
           thumbnail: require('../assets/album-covers/aotp.png'),
           link: 'https://www.youtube.com/embed/LgzqL76OmOE',
-          title: 'Over You'
+          title: 'Over You',
+          lg_backgroundPosition: 'center',
+          lg_backgroundSize: 'contain'
         }
       ],
       currentYt: 0,
