@@ -7,22 +7,30 @@
             <h2>Hit us up!</h2>
           </div>
           <div class="contact-us-subheader">
-            <p>Don't be shy. Let us know if you have any questions!</p>
+            <p>Send us a message, we'll get back to you.</p>
           </div>
           <div class="contact-us-form">
-            <form action="mailto:aotpmusic@gmail.com" method="post" enctype="text/plain">
+            <form :action="mailToUri" method="post" enctype="text/plain">
               <div class="form-group">
-                <input class="col-md-12" type="text" placeholder="First Name" name="first-name" />
+                <input
+                  class="col-md-12"
+                  v-model="fullName"
+                  type="text"
+                  placeholder="Your full name"
+                  name="name"
+                />
               </div>
               <div class="form-group">
-                <input class="col-md-12" type="text" placeholder="Last Name" name="last-name" />
-              </div>
-              <div class="form-group">
-                <textarea class="col-md-12" placeholder="Comments" name="comments" />
+                <textarea
+                  class="col-md-12"
+                  v-model="message"
+                  placeholder="Let's Talk. Write your message here"
+                  name="message"
+                />
               </div>
               <div class="row col-md-12 contact-us-buttons justify-content-center">
                 <div class="col-md-3">
-                  <input class="btn col-md-12" type="submit" value="Submit" />
+                  <input class="btn col-md-12" type="submit" value="Send" />
                 </div>
                 <div class="col-md-3">
                   <input class="btn col-md-12" type="reset" value="Clear" />
@@ -61,7 +69,35 @@
 export default {
   metaInfo: {
     // title will be injected into parent titleTemplate
-    title: "Contact Us"
+    title: 'Contact Us'
+  },
+  data() {
+    return {
+      fullName: '',
+      message: ''
+    };
+  },
+  computed: {
+    mailToUri() {
+      let link = 'mailto:aotpmusic@gmail.com';
+      console.log(this.message, this.fullName, 'asdasd')
+      if (this.message || this.fullName) {
+        link = link + '?body=';
+        if (this.message) {
+          link = link + encodeURI(this.message);
+        }
+
+        if (this.fullName) {
+          link =
+            link +
+            encodeURI('\n\nWarm Regards\n' + this.fullName) +
+            '&subject=' +
+            encodeURI(this.fullName + ' Booking');
+        }
+      }
+
+      return link;
+    }
   }
 };
 </script>
@@ -125,7 +161,7 @@ h1 {
             form {
               .contact-us-buttons {
                 div {
-                  margin: .5em 0;
+                  margin: 0.5em 0;
                 }
               }
             }
@@ -136,11 +172,9 @@ h1 {
   }
 }
 
-
 @media only screen and (max-width: 790px) {
   .contact-us {
     margin-top: 0 !important;
   }
-
 }
 </style>

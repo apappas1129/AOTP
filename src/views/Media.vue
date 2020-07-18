@@ -19,25 +19,7 @@
       <div class="video-title">
         <p>All Over The Place - Contagious</p>
       </div>
-      <!-- <play-btn v-if="!showEmbeds" @click.native="revealEmbeds()" class="that-button"></play-btn>
-      <ul v-if="showEmbeds" class="iframes" v-bind:class="{ 'no-opacity': !isOpaque }">
-        <li>
-          <iframe width="400" height="225" :src="ytList[0]"></iframe>
-          <iframe width="400" height="225" :src="ytList[1]"></iframe>
-        </li>
-        <li>
-          <iframe width="400" height="225" :src="ytList[2]"></iframe>
-          <iframe width="400" height="225" :src="ytList[3]"></iframe>
-        </li>
-      </ul>
-      <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw" target="_blank">
-        <div class="yt-thumbnail"></div>
-      </a>
-      <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw" target="_blank">
-        <h2 style="color: white; margin-bottom: 1rem">
-          <i class="las la-play-circle"></i> Subscribe
-        </h2>
-      </a>-->
+      <div></div>
     </div>
   </div>
 </template>
@@ -223,7 +205,6 @@ iframe {
     .video-container {
       display: flex;
       flex-basis: 80%;
-      margin-top: 10%;
       iframe {
         // position: absolute;
         top: 0;

@@ -172,7 +172,7 @@ const SocialLinks = [
   },
   {
     icon: 'lab la-itunes-note',
-    link: 'https://music.apple.com/ph/album/all-over-the-place-ep/1504245304?app=music',
+    link: 'https://music.apple.com/ph/artist/all-over-the-place/1504554798',
   },
   {
     icon: 'lab la-youtube',
@@ -201,6 +201,8 @@ const Band = [
     twt: 'https://twitter.com/ImSamAkins',
     ig: 'https://www.instagram.com/imsamakins/',
     photo: require(PHOTO + 'sam.jpg'),
+    photo2: require(PHOTO + 'sam2.jpg'),
+
   },
   {
     name: 'Pablo Punzalan',
@@ -209,6 +211,8 @@ const Band = [
     twt: 'https://twitter.com/darthflaco',
     ig: 'https://www.instagram.com/flaco.pablo/',
     photo: require(PHOTO + 'pab.jpg'),
+    photo2: require(PHOTO + 'pab2.jpg'),
+
   },
   {
     name: 'Paolo Victor Ramos',
@@ -217,6 +221,7 @@ const Band = [
     twt: 'https://twitter.com/PaoloRamosMusic',
     ig: 'https://www.instagram.com/paoloramosme/',
     photo: require(PHOTO + 'pao.jpg'),
+    photo2: require(PHOTO + 'pao2.jpg'),
   },
   {
     name: 'JC Macahig',
@@ -225,6 +230,7 @@ const Band = [
     twt: 'https://twitter.com/jcmacahig',
     ig: 'https://www.instagram.com/jacemacahig/',
     photo: require(PHOTO + 'jc.jpg'),
+    photo2: require(PHOTO + 'jc2.jpg'),
   },
   {
     name: 'Jed Aromin',
@@ -233,6 +239,7 @@ const Band = [
     twt: 'https://twitter.com/Jeddy_boy',
     ig: 'https://www.instagram.com/morebarbacoa/',
     photo: require(PHOTO + 'jed.jpg'),
+    photo2: require(PHOTO + 'jed2.jpg'),
   },
   {
     name: 'JJ Macahig',
@@ -240,6 +247,7 @@ const Band = [
     fb: 'https://www.facebook.com/jjmchaig',
     ig: 'https://www.instagram.com/jjmchaig/',
     photo: require(PHOTO + 'jj.jpg'),
+    photo2: require(PHOTO + 'jj2.jpg'),
   },
 ];
 
