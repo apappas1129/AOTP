@@ -41,22 +41,34 @@
             <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/">Home</router-link>
           </li>
           <li>
-            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/about">About</router-link>
+            <router-link
+              @click.native="() => { $scrollToTop(); isOpened = false; }"
+              to="/about"
+            >About</router-link>
           </li>
           <!-- <li>
             <router-link @click.native="$scrollToTop" to="/news">News</router-link>
           </li>-->
           <li>
-            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/music">Music</router-link>
+            <router-link
+              @click.native="() => { $scrollToTop(); isOpened = false; }"
+              to="/music"
+            >Music</router-link>
           </li>
           <!-- <li>
             <router-link @click.native="$scrollToTop" to="/media">Lyrics</router-link>
           </li>-->
           <li>
-            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/media">Media</router-link>
+            <router-link
+              @click.native="() => { $scrollToTop(); isOpened = false; }"
+              to="/media"
+            >Media</router-link>
           </li>
           <li>
-            <router-link @click.native="() => { $scrollToTop(); isOpened = false; }" to="/contact">Contact</router-link>
+            <router-link
+              @click.native="() => { $scrollToTop(); isOpened = false; }"
+              to="/contact"
+            >Contact</router-link>
           </li>
         </ul>
       </div>
@@ -68,26 +80,17 @@
       <div class="row footer-container col-md-12 justify-content-center">
         <div class="footer-album col-md-4 footer-section-header">
           <div class="footer-section-header">
-            <h4>Our Albums</h4>
+            <h4>Our Music</h4>
           </div>
           <ul>
             <li>
-              <a
-                href="https://smarturl.it/aotpcontagious"
-                target="_blank"
-              >Contagious</a>
+              <a href="https://smarturl.it/aotpcontagious" target="_blank">Contagious</a>
             </li>
             <li>
-              <a
-                href="https://smarturl.it/aotpbackwards"
-                target="_blank"
-              >Backwards</a>
+              <a href="https://smarturl.it/aotpbackwards" target="_blank">Backwards</a>
             </li>
             <li>
-              <a
-                href="https://smarturl.it/aotpEP"
-                target="_blank"
-              >All Over The Place</a>
+              <a href="https://smarturl.it/aotpEP" target="_blank">All Over The Place</a>
             </li>
           </ul>
         </div>
@@ -105,47 +108,18 @@
           </div>
           <div class="row col-md-12 contact">
             <p class="row col-md-12 text-left">
-              <strong>ELISHA GRACE</strong>
+              <strong style="margin-bottom: 8px;">For Bookings</strong>
             </p>
             <ul class="col-md-12 text-left">
               <li>
                 <strong>Email:</strong>&nbsp;
-                <a href="mailto:elishagraceaotp@gmail.com">elishagraceaotp@gmail.com</a>
+                <a href="mailto:elishagraceaotp@gmail.com">aotpmusic@gmail.com</a>
               </li>
               <li>
-                <strong>Phone:</strong>&nbsp;
-                <p>+63 917 307 5664</p>
+                <strong>Lorenzo Saga</strong>
               </li>
               <li>
-                <strong>Facebook:</strong>&nbsp;
-                <p>fb.com/potatopotaterr</p>
-              </li>
-            </ul>
-          </div>
-          <div class="row col-md-12 contact">
-            <p class="row col-md-12 text-left">
-              <strong>LORENZO SAGA</strong>
-            </p>
-            <ul class="col-md-12 text-left">
-              <li>
-                <strong>Email:</strong>&nbsp;
-                <a href="mailto:marlofficial@gmail.com">marlofficial@gmail.com</a>
-              </li>
-              <li>
-                <strong>Phone:</strong>&nbsp;
-                <p>+63 926 932 4021</p>
-              </li>
-              <li>
-                <strong>Facebook:</strong>&nbsp;
-                <p>fb.com/lorenzosaga</p>
-              </li>
-            </ul>
-          </div>
-          <div class="row col-md-12 contact">
-            <ul class="col-md-12 text-left">
-              <li>
-                <strong>Email:</strong>&nbsp;
-                <a href="mailto:aotpmusic@gmail.com">aotpmusic@gmail.com</a>
+                <p>Phone: +63 926 932 4021</p>
               </li>
             </ul>
           </div>
@@ -156,11 +130,11 @@
 </template>
 
 <script>
-import { SocialLinks as socialLinks } from "@/data";
-import ToastPlayer from '@/components/ToastPlayer'
+import { SocialLinks as socialLinks } from '@/data';
+import ToastPlayer from '@/components/ToastPlayer';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     ToastPlayer
   },
@@ -171,23 +145,42 @@ export default {
     meta: [
       // Primary Meta Tags
       { name: 'og:title', content: 'AOTP Official Website' },
-      { name: 'og:description', content: 'The official website of All Over The Place.' },
+      {
+        name: 'og:description',
+        content: 'The official website of All Over The Place.'
+      },
       // Open Graph / Facebook
       { property: 'og:title', content: 'AOTP Official Website' },
-      { property: 'og:description', content: 'The official website of All Over The Place.' },
+      {
+        property: 'og:description',
+        content: 'The official website of All Over The Place.'
+      },
       { property: 'og:url', content: 'https://www.aotpmusic.com' },
-      { property: 'og:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') },
+      {
+        property: 'og:image',
+        content:
+          'https://www.aotpmusic.com' +
+          require('./assets/mini-gallery/s1-5.jpg')
+      },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'AOTP Music Official Website' },
       // Twitter
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:url', content: 'https://www.aotpmusic.com' },
       { property: 'twitter:title', content: 'AOTP Official Website' },
-      { property: 'twitter:description', content: 'The official website of All Over The Place.' },
-      { property: 'twitter:image', content: 'https://www.aotpmusic.com' + require('./assets/mini-gallery/s1-5.jpg') },
+      {
+        property: 'twitter:description',
+        content: 'The official website of All Over The Place.'
+      },
+      {
+        property: 'twitter:image',
+        content:
+          'https://www.aotpmusic.com' +
+          require('./assets/mini-gallery/s1-5.jpg')
+      }
     ]
   },
-  data () {
+  data() {
     return {
       isOpened: false,
       isPassedSection1: false,
@@ -195,11 +188,11 @@ export default {
       isMobileNavDark: false
     };
   },
-  mounted () {
-    window.addEventListener("scroll", this.updateScroll);
+  mounted() {
+    window.addEventListener('scroll', this.updateScroll);
   },
   methods: {
-    updateScroll () {
+    updateScroll() {
       if (window.scrollY > 10) {
         this.isPassedSection1 = true;
       } else {
@@ -208,19 +201,21 @@ export default {
     }
   },
   watch: {
-    $route () {
+    $route() {
       this.isPassedSection1 = true;
-      this.isMobileNavDark = ['About', 'Music', 'Contact'].includes(this.$route.name);
+      this.isMobileNavDark = ['About', 'Music', 'Contact'].includes(
+        this.$route.name
+      );
     }
   },
   computed: {
-    shrinkNav () {
+    shrinkNav() {
       console.log(this.$route.name);
-      return this.isPassedSection1 || this.$route.name != "Home";
+      return this.isPassedSection1 || this.$route.name != 'Home';
     }
   },
-  beforeDestroy () {
-    window.removeEventListener("scroll", this.updateScroll);
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.updateScroll);
   }
 };
 </script>
@@ -320,6 +315,8 @@ h3 {
 }
 
 .page-footer {
+  z-index: 900;
+  position: relative;
   padding: 0 10% 2% 10%;
   background: #1d1c21;
   h4 {

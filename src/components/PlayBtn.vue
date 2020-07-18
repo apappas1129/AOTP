@@ -1,5 +1,5 @@
 <template>
-  <a id="play-video" class="video-play-button" href="#">
+  <a @click="$emit('clixxx')" id="play-video" class="video-play-button" href="#">
     <span></span>
   </a>
 </template>
@@ -14,7 +14,7 @@ export default {
 .video-play-button {
   position: absolute;
   z-index: 10;
-  top: calc(50% - 80px);
+  top: calc(50% - 15px);
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   box-sizing: content-box;

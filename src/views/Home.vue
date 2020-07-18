@@ -27,34 +27,22 @@
           </div>
         </div>
         <div class="col about-content">
-          <div class="abt-wrap">
+          <!-- <div class="abt-wrap">
             <h3 class="about noselect">about</h3>
-          </div>
+          </div>-->
           <div class="logo3">
             <img src="../assets/aotp-logo-3.png" alt="aotp" />
           </div>
 
           <div class="about-text">
             <p
-              style="margin: 1rem 7.5rem;"
-            >All Over The Place is a modern contemporary band that creates music in pursuit of navigating through and accessing the secret places of an individual's soul. Writing songs, beats and rhythyms that propel every person's inward journey and drive us to move forward - accepting and dancing along with the reality of life, love and everything else.</p>
+              style="margin: 1rem 7.5rem; text-align: left; text-indent: 3rem;"
+            >All Over The Place is a modern contemporary band that creates music in pursuit of navigating through and accessing the secret places of an individual's soul. Writing songs, beats and rhythms that propel every person's inward journey and drive us to move forward - accepting and dancing along with the reality of life, love and everything else.</p>
+            <p
+              style="margin: 1rem 7.5rem; text-align: left; text-indent: 3rem;"
+            >The band signed a deal with Warner Music Philippines in late 2019, and their first single titled Contagious was released in 2020. Contagious which is highly influenced by reggae-ton and dance music, produced by Awit Nominated Producer Carlisle Tabanera, made it as the #1 on Wave 89.1 Fm's chart in June 2020, after being on the chart for 5 weeks.</p>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="events-section">
-      <h3>Live</h3>
-      <div class="event-posters">
-        <div
-          v-for="event in events"
-          v-bind:key="event.poster"
-          v-bind:style="{
-          backgroundImage: url(event.poster),
-          backgroundSize: event.backgroundSize,
-          backgroundColor: event.backgroundColor
-          }"
-          class="poster"
-        ></div>
       </div>
     </section>
     <section class="news" style="height: 46vh; min-height: 330px">
@@ -71,8 +59,12 @@
             {{ latestNews.body }}
             <br />
             <i>"You may now cry.", says JC Macahig, the man behind the keyboards.</i>
-            <br>
-            Listen to it now on <a style="color:#1ED760" href="https://open.spotify.com/album/4qLF4Xyq19LtUt42Qv6BuC?fbclid=IwAR3VfNpyy_ML1vLIu6Py-lDIE8oAOtNIN9gRAo-9rqpP6GSGp-WF778j0vU" target="_blank"> Spotify</a>!
+            <br />Listen to it now on
+            <a
+              style="color:#1ED760"
+              href="https://open.spotify.com/album/4qLF4Xyq19LtUt42Qv6BuC?fbclid=IwAR3VfNpyy_ML1vLIu6Py-lDIE8oAOtNIN9gRAo-9rqpP6GSGp-WF778j0vU"
+              target="_blank"
+            >Spotify</a>!
           </p>
           <p style=" color: white;">{{ latestNews.date }}</p>
         </div>
@@ -80,6 +72,10 @@
       <parallax fixed>
         <img src="../assets/cover-photo.png" alt="very cool bg" />
       </parallax>
+    </section>
+    <section class="events-section">
+      <h3>Shows</h3>
+      <events-swiper></events-swiper>
     </section>
     <section class="extra">
       <div class="row wyt">
@@ -98,12 +94,12 @@
 import {
   LatestNews as latestNews,
   SocialLinks as socialLinks,
-  Events as events
 } from '@/data';
 import HomeSlider from '@/components/HomeSlider.vue';
 import FancyBtn from '@/components/FancyBtn.vue';
 import NeomorphicPlayer from '@/components/NeomorphicPlayer.vue';
 import MiniGallery from '@/components/MiniGallery.vue';
+import EventsSwiper from '@/components/EventsSwiper.vue';
 import Parallax from 'vue-parallaxy';
 import Tinybox from 'vue-tinybox';
 
@@ -118,7 +114,8 @@ export default {
     NeomorphicPlayer,
     Parallax,
     MiniGallery,
-    Tinybox
+    Tinybox,
+    EventsSwiper
   },
   data() {
     return {
@@ -126,7 +123,6 @@ export default {
       tinyBoxNewsIndex: null,
       socialLinks,
       latestNews,
-      events
     };
   },
   methods: {
@@ -145,81 +141,6 @@ export default {
   h3 {
     padding-top: 1rem;
     color: white;
-  }
-}
-
-.event-posters {
-  padding: 1rem 1rem 0 1rem;
-  display: flex;
-  flex-direction: row;
-  flex-flow: row wrap;
-  justify-content: center;
-  background: black;
-  .poster {
-    margin: 5px 5px 1rem 5px;
-    /**40x27 ratio */
-    min-height: 564px;
-    min-width: 372.7px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: black;
-    background-position: center;
-  }
-
-  @media only screen and (max-width: 1148px) {
-    .poster {
-      /**40x27 ratio */
-      min-width: calc((50vh - 40px) * 0.675);
-      min-height: calc(50vh - 40px);
-    }
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .event-posters {
-    justify-content: space-evenly;
-
-    .poster {
-      margin: 0 0 1rem 0;
-      min-width: calc((60vh) * 0.675);
-      min-height: calc(60vh);
-    }
-  }
-}
-
-@media only screen and (max-width: 702px) {
-  .event-posters {
-    .poster {
-      min-width: 270px;
-      min-height: 400px;
-    }
-  }
-}
-
-@media only screen and (max-width: 560px) {
-  .event-posters {
-    .poster {
-      min-width: calc((35vh) * 0.675);
-      min-height: calc(35vh);
-    }
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .event-posters {
-    .poster {
-      min-width: calc((28vh) * 0.675);
-      min-height: calc(28vh);
-    }
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .event-posters {
-    .poster {
-      min-width: calc((33vh) * 0.675);
-      min-height: calc(33vh);
-    }
   }
 }
 
@@ -313,7 +234,7 @@ h3.about {
 .logo3 {
   margin: 0 auto;
   transition: all 0.65s ease;
-  width: 232px;
+  width: 310px;
   img {
     width: 100%;
     margin-top: -0.75rem;

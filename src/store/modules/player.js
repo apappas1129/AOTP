@@ -24,6 +24,7 @@ const getters = {
 
 const actions = {
   play({ commit, state }) {
+    if (!state.audio) return;
     if (state.audio.paused) {
       state.audio.play();
       commit("setIsPlaying", true);
