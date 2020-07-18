@@ -1,36 +1,62 @@
 <template>
   <div class="media-container">
+    <section class="media-wrapper">
+      <div class="video-container">
+        <div
+          v-if="!isPlayingVid"
+          v-bind:style="{
+            backgroundImage : url(currentYt.lg_thumbnail || currentYt.thumbnail),
+            backgroundPositionY: currentYt.lg_offsetY,
+            backgroundSize: currentYt.lg_backgroundSize || 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: currentYt.lg_backgroundPosition,
+            backgroundColor: currentYt.lg_bgColor || 'black'
+          }"
+          class="vid-cover"
+        >
+          <play-btn @clixxx="playVideo()"></play-btn>
+        </div>
+        <iframe
+          v-if="currentYt && isPlayingVid"
+          width="640"
+          height="390"
+          :src="currentYt.link + '?autoplay=1'"
+          frameborder="0"
+          allow="autoplay; accelerometer; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          name="alex"
+        ></iframe>
+      </div>
+      <a href="#">
+        <h2>{{currentYt ? currentYt.title + '- All Over The Place' : ''}}</h2>
+      </a>
+    </section>
+    <section class="yt-l-contain">
+      <div class="yt-list">
+        <div
+          v-for="(y, i) in ytList"
+          v-bind:key="i"
+          v-bind:class="{ active : currentYt == y }"
+          v-bind:style="{
+            backgroundImage : url(y.thumbnail),
+            backgroundSize: 'cover'
+          }"
+          @click="view(y)"
+          class="yt-thumb"
+        ></div>
+      </div>
+    </section>
+
     <div class="media-vid-bg">
       <video autoplay muted loop>
         <source src="../assets/videos/drummer.mp4" type="video/mp4" />
       </video>
     </div>
-    <div class="media-wrapper">
-      <play-btn v-if="!showEmbeds" @click.native="revealEmbeds()" class="that-button"></play-btn>
-      <ul v-if="showEmbeds" class="iframes" v-bind:class="{ 'no-opacity': !isOpaque }">
-        <li>
-          <iframe width="400" height="225" :src="ytList[0]"></iframe>
-          <iframe width="400" height="225" :src="ytList[1]"></iframe>
-        </li>
-        <li>
-          <iframe width="400" height="225" :src="ytList[2]"></iframe>
-          <iframe width="400" height="225" :src="ytList[3]"></iframe>
-        </li>
-      </ul>
-      <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw" target="_blank">
-        <div class="yt-thumbnail"></div>
-      </a>
-      <a href="https://www.youtube.com/channel/UCXUVAs6qA9Lq1q2DVqPIsbw" target="_blank">
-        <h2 style="color: white; margin-bottom: 1rem">
-          <i class="las la-play-circle"></i> Subscribe
-        </h2>
-      </a>
-    </div>
   </div>
 </template>
 
 <script>
-import PlayBtn from '@/components/PlayBtn';
+import PlayBtn from '@/components/PlayBtn.vue';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
@@ -45,33 +71,73 @@ export default {
   data() {
     return {
       ytList: [
-        'https://www.youtube.com/embed/Z0lk4B3NjO0',
-        'https://www.youtube.com/embed/0Szuyb3KE2c',
-        'https://www.youtube.com/embed/x9v_vA6HKeE',
-        'https://www.youtube.com/embed/LgzqL76OmOE'
+        {
+          thumbnail: require('../assets/media-thumbs/someone-else.jpg'),
+          lg_thumbnail: require('../assets/media-thumbs/someone-else.jpg'),
+          lg_offsetY: '35%',
+          lg_offsetX: null,
+          link: 'https://www.youtube.com/watch?v=52KIEMYfKpk',
+          title: 'Someone Else'
+        },
+        {
+          thumbnail: require('../assets/album-covers/contagious.png'),
+          link: 'https://www.youtube.com/embed/Z0lk4B3NjO0',
+          title: 'Contagious',
+          lg_backgroundPosition: 'center',
+          lg_backgroundSize: 'contain'
+        },
+        {
+          thumbnail: require('../assets/album-covers/backwards.png'),
+          link: 'https://www.youtube.com/embed/0IR3q7rxiDE',
+          title: 'Backwards',
+          lg_backgroundPosition: 'center',
+          lg_backgroundSize: 'contain'
+        },
+        {
+          thumbnail: require('../assets/album-covers/aotp.png'),
+          link: 'https://www.youtube.com/embed/iSsVGuzQRHo',
+          title: 'Away'
+        },
+        {
+          thumbnail: require('../assets/album-covers/aotp.png'),
+          link: 'https://www.youtube.com/embed/JA7HRPeezfo',
+          title: 'Fear'
+        },
+        {
+          thumbnail: require('../assets/album-covers/aotp.png'),
+          link: 'https://www.youtube.com/embed/LgzqL76OmOE',
+          title: 'Over You'
+        }
       ],
-      showEmbeds: false,
-      isOpaque: false
+      currentYt: 0,
+      isPlayingVid: false
     };
+  },
+  created() {
+    this.currentYt = this.ytList[0];
   },
   computed: {
     ...mapGetters({
-      isTimerPlaying: 'getIsTimerPlaying',
+      isTimerPlaying: 'getIsTimerPlaying'
     })
   },
   methods: {
-    revealEmbeds() {
-      this.stopPlayingMusic();
-      this.showEmbeds = true;
-      setTimeout(() => {
-        this.isOpaque = true;
-      }, 1000);
+    url(src) {
+      return "url('" + src + "')";
     },
-    ...mapActions([
-      'play',
-    ]),
+    view(vid) {
+      this.isPlayingVid = false;
+      this.currentYt = vid;
+      console.log(this.currentYt);
+    },
+    playVideo() {
+      this.stopPlayingMusic();
+      this.isPlayingVid = true;
+      console.log('play now', this.isTimerPlaying);
+    },
+    ...mapActions(['play']),
     stopPlayingMusic() {
-      if(this.isTimerPlaying) {
+      if (this.isTimerPlaying) {
         this.play();
       }
     }
@@ -80,18 +146,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.yt-thumbnail {
-  display: none;
-  height: 8rem;
-  width: 8rem;
-  border-radius: 50%;
-  left: calc(50% - 4rem);
-  bottom: calc(40% + 60px);
-  position: absolute;
-  background-image: url(../assets/mini-gallery/s1-5.jpg);
-  background-size: cover;
-  background-position-y: -20px;
-  cursor: pointer;
+.yt-l-contain {
+  position: relative;
+  z-index: 2;
+  max-height: 90vh;
+  min-height: 200px;
+  .yt-list {
+    max-height: calc(100% - 2rem);
+    overflow-y: auto;
+    left: 0;
+    right: 0;
+    text-align: 0;
+    max-width: 1164px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin: 1rem auto;
+    justify-content: center;
+    .yt-thumb {
+      flex-grow: 1;
+      min-height: 150px;
+      min-width: 150px;
+      max-width: 150px;
+      margin: 8px;
+      opacity: 0.8;
+      transition: all 0.3s ease-in;
+      cursor: pointer;
+    }
+
+    .yt-thumb.active,
+    .yt-thumb:hover {
+      opacity: 1;
+    }
+  }
+  .yt-thumbnail {
+    display: none;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    left: calc(50% - 4rem);
+    bottom: calc(40% + 60px);
+    position: absolute;
+    background-image: url(../assets/mini-gallery/s1-5.jpg);
+    background-size: cover;
+    background-position-y: -20px;
+    cursor: pointer;
+  }
 }
 
 ul.iframes.no-opacity {
@@ -113,19 +214,15 @@ ul.iframes {
 }
 
 h2 {
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  font-family: 'Questrial', sans-serif;
-  font-style: normal;
-  font-weight: 200;
+  font-weight: bold;
   font-size: 3.2rem;
   transition: all 0.5s;
   margin-bottom: 0;
+  margin-top: 2rem;
   i {
     transform: scale(1.25);
   }
+  color: white;
 }
 
 a:hover {
@@ -138,9 +235,11 @@ a:hover {
 
 .media-vid-bg {
   overflow: hidden;
-  position: relative;
+  position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
 
   video {
     min-width: 100%;
@@ -155,10 +254,18 @@ a:hover {
 .media-container {
   width: 100%;
   height: 100vh;
-  background-color: black;
+  background: transparent;
 }
 
+.vid-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 101%;
+}
 .media-wrapper {
+  z-index: 4;
   width: 100%;
   height: calc(100vh - 80px);
   position: absolute;
@@ -167,14 +274,14 @@ a:hover {
   right: 0;
   left: 0;
   max-width: 1100px;
-  background-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.45) 20%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.45) 80%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  // background-image: linear-gradient(
+  //   90deg,
+  //   rgba(0, 0, 0, 0) 0%,
+  //   rgba(0, 0, 0, 0.45) 20%,
+  //   rgba(0, 0, 0, 0.6) 50%,
+  //   rgba(0, 0, 0, 0.45) 80%,
+  //   rgba(0, 0, 0, 0) 100%
+  // );
 }
 
 iframe {
@@ -190,6 +297,23 @@ iframe {
 }
 
 @media only screen and (max-width: 790px) {
+  .media-wrapper {
+    height: 70vh;
+  }
+
+  @media only screen and (min-height: 570px) {
+    .yt-l-contain {
+      margin-top: -6rem;
+    }
+  }
+
+  @media only screen and (min-height: 800px) {
+    .yt-l-contain {
+      margin-top: -12rem;
+      height: 40vh;
+    }
+  }
+
   .that-button {
     display: none;
   }
@@ -199,10 +323,53 @@ iframe {
   }
 
   h2 {
-    bottom: 30%;
+    display: none;
   }
   .yt-thumbnail {
     display: block;
+  }
+}
+
+.media-container {
+  height: auto;
+  .media-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 25px;
+    .video-container {
+      min-height: 224px;
+      display: flex;
+      flex-basis: 80%;
+      position: relative;
+      iframe {
+        // position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+      }
+    }
+    .video-title {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: left;
+      color: #fff;
+    }
+  }
+}
+
+@media only screen and (max-width: 558px) {
+  .media-wrapper {
+    height: 40vh;
+  }
+
+  @media only screen and (min-height: 200px) {
+    .yt-l-contain {
+      margin-top: -4rem;
+      height: 60vh;
+    }
   }
 }
 </style>

@@ -1,10 +1,16 @@
 <template>
   <div class="bgrid-container">
     <div class="at-grid" data-column="3">
-      <div v-for="(b, i) in band" v-bind:key="i" class="at-column">
+      <div
+        @mouseenter="hovered = i"
+        @mouseleave="hovered = -1"
+        v-for="(b, i) in band"
+        v-bind:key="i"
+        class="at-column"
+      >
         <div class="at-user">
           <div class="at-user__avatar">
-            <img :src="b.photo" />
+            <img :src="i == hovered ? b.photo2 : b.photo" />
           </div>
           <div class="at-user__name">{{ b.name }}</div>
           <div class="at-user__title">{{ b.description }}</div>
@@ -32,16 +38,22 @@
 </template>
 
 <script>
-import { Band as band } from '@/data'
+import { Band as band } from '@/data';
 
 export default {
   name: 'band-grid',
-  data () {
+  data() {
     return {
-      band
+      band,
+      hovered: -1
+    };
+  },
+  methods: {
+    onHover(i) {
+      console.log('hv', i, this.hovered);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
