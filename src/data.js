@@ -253,6 +253,12 @@ const Band = [
 
 const Events = [
   {
+    poster: require('./assets/events/16-7-2020.jpg'),
+    date: new Date('2020-07-16'),
+    backgroundSize: 'contain',
+    backgroundColor: '#35289A',
+  },
+  {
     poster: require('./assets/events/19-2-2020.jpg'),
     date: new Date('2020-02-19')
   },

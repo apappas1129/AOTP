@@ -315,6 +315,8 @@ h3 {
 }
 
 .page-footer {
+  z-index: 900;
+  position: relative;
   padding: 0 10% 2% 10%;
   background: #1d1c21;
   h4 {
