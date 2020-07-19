@@ -28,7 +28,7 @@
         ></iframe>
       </div>
       <a href="#">
-        <h2>{{currentYt ? currentYt.title + '- All Over The Place' : ''}}</h2>
+        <h2>{{currentYt ? currentYt.title : '' }}</h2>
       </a>
     </section>
     <section class="yt-l-contain">

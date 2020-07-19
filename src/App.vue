@@ -95,9 +95,9 @@
           </ul>
         </div>
         <div class="footer-socials col-md-4 social-footer-col">
-          <div class="footer-section-header">
+          <!-- <div class="footer-section-header">
             <h4>More about us</h4>
-          </div>
+          </div> -->
           <a v-for="s in socialLinks" :key="s.link" :href="s.link" target="_blank">
             <i :class="s.icon"></i>
           </a>

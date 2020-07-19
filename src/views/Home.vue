@@ -40,7 +40,7 @@
             >All Over The Place is a modern contemporary band that creates music in pursuit of navigating through and accessing the secret places of an individual's soul. Writing songs, beats and rhythms that propel every person's inward journey and drive us to move forward - accepting and dancing along with the reality of life, love and everything else.</p>
             <p
               style="margin: 1rem 7.5rem; text-align: left; text-indent: 3rem;"
-            >The band signed a deal with Warner Music Philippines in late 2019, and their first single titled Contagious was released in 2020. Contagious which is highly influenced by reggae-ton and dance music, produced by Awit Nominated Producer Carlisle Tabanera, made it as the #1 on Wave 89.1 Fm's chart in June 2020, after being on the chart for 5 weeks.</p>
+            >The band signed a deal with Warner Music Philippines in late 2019, and their first single titled Contagious was released in 2020. Contagious which is highly influenced by reggae-ton and dance music, produced by Awit Nominated Producer Carlisle Tabanera, made it as #1 on Wave 89.1 Fm's chart in June 2020, after being on the chart for 5 weeks.</p>
           </div>
         </div>
       </div>

@@ -56,7 +56,7 @@ export default {
 .event-posters {
   background: black;
   .poster {
-    margin: 5px 5px 1rem 5px;
+    margin: 5px 2.5px 1rem 2.5px !important;
     /**40x27 ratio */
     min-height: 564px;
     min-width: 372.7px;
