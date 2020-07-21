@@ -81,16 +81,16 @@ export default {
     mailToUri() {
       let link = 'mailto:aotpmusic@gmail.com';
       if (this.message || this.fullName) {
-        link = link + '?body=';
+        link = link + '?';
         if (this.message) {
-          link = link + encodeURI(this.message);
+          link = link + 'body=' + encodeURI(this.message);
         }
 
         if (this.fullName) {
           link =
             link +
             encodeURI('\n\nWarm Regards\n' + this.fullName) +
-            '&subject=' +
+            (this.message ? '&subject=' : 'subject=') +
             encodeURI(this.fullName + ' Booking');
         }
       }

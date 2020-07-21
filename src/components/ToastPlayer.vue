@@ -104,7 +104,7 @@ export default {
   background-color: transparent;
   color: #666666;
   width: 270px;
-  z-index: 180;
+  z-index: 2000;
   bottom: 1rem;
   position: fixed;
   left: 1rem;

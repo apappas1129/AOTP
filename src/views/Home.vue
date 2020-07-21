@@ -91,10 +91,7 @@
 </template>
 
 <script>
-import {
-  LatestNews as latestNews,
-  SocialLinks as socialLinks,
-} from '@/data';
+import { LatestNews as latestNews, SocialLinks as socialLinks } from '@/data';
 import HomeSlider from '@/components/HomeSlider.vue';
 import FancyBtn from '@/components/FancyBtn.vue';
 import NeomorphicPlayer from '@/components/NeomorphicPlayer.vue';
@@ -122,7 +119,7 @@ export default {
       tinyBoxNews: [{ src: latestNews.thumbnail, caption: latestNews.title }],
       tinyBoxNewsIndex: null,
       socialLinks,
-      latestNews,
+      latestNews
     };
   },
   methods: {
@@ -137,6 +134,7 @@ export default {
 .events-section {
   height: unset;
   max-height: unset;
+  min-height: unset;
   background: black;
   h3 {
     padding-top: 1rem;

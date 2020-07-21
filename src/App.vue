@@ -64,7 +64,7 @@
               to="/media"
             >Media</router-link>
           </li>
-          <li>
+          <li class="quick-patch hide">
             <router-link
               @click.native="() => { $scrollToTop(); isOpened = false; }"
               to="/contact"
@@ -97,7 +97,7 @@
         <div class="footer-socials col-md-4 social-footer-col">
           <!-- <div class="footer-section-header">
             <h4>More about us</h4>
-          </div> -->
+          </div>-->
           <a v-for="s in socialLinks" :key="s.link" :href="s.link" target="_blank">
             <i :class="s.icon"></i>
           </a>
@@ -113,7 +113,7 @@
             <ul class="col-md-12 text-left">
               <li>
                 <strong>Email:</strong>&nbsp;
-                <a href="mailto:elishagraceaotp@gmail.com">aotpmusic@gmail.com</a>
+                <a href="mailto:aotpmusic@gmail.com">aotpmusic@gmail.com</a>
               </li>
               <li>
                 <strong>Lorenzo Saga</strong>

@@ -82,6 +82,9 @@ h1 {
   .nav {
     display: none !important;
   }
+  .quick-patch.hide {
+    display: none;
+  }
   .nav-mobile {
     display: flex;
     position: fixed;
