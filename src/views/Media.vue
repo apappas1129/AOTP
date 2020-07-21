@@ -113,6 +113,20 @@ export default {
           title: 'Over You',
           lg_backgroundPosition: 'center',
           lg_backgroundSize: 'contain'
+        },
+        {
+          thumbnail: require('../assets/album-covers/aotp.png'),
+          link: 'https://www.youtube.com/embed/0JlCwEjFq2o',
+          title: 'Stand',
+          lg_backgroundPosition: 'center',
+          lg_backgroundSize: 'contain'
+        },
+        {
+          thumbnail: require('../assets/album-covers/aotp.png'),
+          link: 'https://www.youtube.com/embed/qw9YBsFaSDU',
+          title: 'No Pressure',
+          lg_backgroundPosition: 'center',
+          lg_backgroundSize: 'contain'
         }
       ],
       currentYt: 0,
