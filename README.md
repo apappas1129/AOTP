@@ -1,6 +1,11 @@
 # 🎸 Official AOTP Website
 [https://aotpmusic.com/](https://aotpmusic.com/)
 
+## TODO:
+* Migrate assets to a faster CDN
+* Pre-load assets (photos, etc.) with loading screen.
+* [progressive-image](https://github.com/ccforward/progressive-image)
+
 ## Project setup
 
 ```
